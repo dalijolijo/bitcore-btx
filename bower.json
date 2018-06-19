@@ -1,20 +1,18 @@
 {
-  "name": "bitcore",
-  "main": "./bitcore.min.js",
+  "name": "btxcore",
+  "main": "./btxcore.min.js",
   "version": "0.13.5",
-  "homepage": "http://bitcore.io",
+  "homepage": "https://bitcore.cc",
   "authors": [
     "BitPay, Inc."
   ],
-  "description": "A pure, powerful core for your bitcoin project.",
+  "description": "A pure, powerful core for your bitcore BTX project.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
-    "bitcoin",
     "bitcore",
-    "btc",
-    "satoshi"
+    "btx"
   ],
   "license": "MIT",
   "ignore": [

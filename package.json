@@ -1,5 +1,5 @@
 {
-  "name": "bitcore",
+  "name": "btxcore",
   "version": "5.0.0-beta.44",
   "description": "A platform to build bitcoin and blockchain-based applications.",
   "engines": {
@@ -12,12 +12,13 @@
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "bitcore": "./bin/bitcore",
-    "bitcored": "./bin/bitcored"
+    "btxcore": "./bin/btxcore",
+    "btxcored": "./bin/btxcored"
   },
   "keywords": [
-    "bitcoin",
-    "transaction",
+    "bitcore",
+    "btx",
+	"transaction",
     "address",
     "p2p",
     "ecies",
@@ -33,13 +34,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/LIMXTEC/btxcore.git"
   },
   "dependencies": {
-    "bitcore-lib": "5.0.0-beta.1",
-    "bitcore-node": "5.0.0-beta.44",
-    "insight-api": "5.0.0-beta.44",
-    "insight-ui": "bitpay/insight#v5.0.0-beta.44"
+    "btxcore-lib": "5.0.0-beta.1",
+    "btxcore-node": "5.0.0-beta.44",
+    "insight-btx-api": "5.0.0-beta.44",
+    "insight-btx-ui": "bitpay/insight#v5.0.0-beta.44"
   },
   "license": "MIT",
   "devDependencies": {

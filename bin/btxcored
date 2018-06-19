@@ -7,7 +7,7 @@ if (parseInt(process.version.split('.')[0].slice(1)) < 8) {
 }
 
 var path = require('path');
-var bitcored = require('bitcore-node/lib/cli/bitcored');
+var bitcored = require('btxcore-node/lib/cli/bitcored');
 var servicesPath = path.resolve(__dirname, '../');
-var additionalServices = ['insight-api', 'insight-ui'];
+var additionalServices = ['insight-btx-api', 'insight-btx-ui'];
 bitcored(servicesPath, additionalServices);

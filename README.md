@@ -1,43 +1,43 @@
-Bitcore
+BTXCore
 =======
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore.svg?style=flat-square)](https://www.npmjs.org/package/bitcore)
-[![Build Status](https://img.shields.io/travis/bitpay/bitcore.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore)
+[![NPM Package](https://img.shields.io/npm/v/btxcore.svg?style=flat-square)](https://www.npmjs.org/package/btxcore)
+[![Build Status](https://img.shields.io/travis/limxtec/btxcre.svg?branch=master&style=flat-square)](https://travis-ci.org/limxtec/btxcore)
 
-Infrastructure to build Bitcoin and blockchain-based applications for the next generation of financial technology.
+Infrastructure to build Bitcore BTX and blockchain-based applications for the next generation of financial technology.
 
-**Note:** If you're looking for the Bitcore Library please see: https://github.com/bitpay/bitcore-lib
+**Note:** If you're looking for the BTXcore Library please see: https://github.com/limxtec/btxcore-lib
 
 ## Getting Started
 
 Before you begin you'll need to have Node.js v8 installed. There are several options for installation. One method is to use [nvm](https://github.com/creationix/nvm) to easily switch between different versions, or download directly from [Node.js](https://nodejs.org/).
 
 ```bash
-npm install -g bitcore
+npm install -g btxcore
 ```
 
 Spin up a full node and join the network:
 
 ```bash
-npm install -g bitcore
-bitcored
+npm install -g btxcore
+btxcored
 ```
 
-You can then view the Insight block explorer at the default location: `http://localhost:3001/insight`, and your configuration file will be found in your home directory at `~/.bitcore`.
+You can then view the Insight block explorer at the default location: `http://localhost:3001/insight`, and your configuration file will be found in your home directory at `~/.btxcore`.
 
 Create a transaction:
 ```js
-var bitcore = require('bitcore');
-var transaction = new bitcore.Transaction();
+var btxcore = require('btxcore');
+var transaction = new btxcore.Transaction();
 var transaction.from(unspent).to(address, amount);
 transaction.sign(privateKey);
 ```
 
 ## Applications
 
-- [Node](https://github.com/bitpay/bitcore-node) - A full node with extended capabilities using Bitcoin Core
-- [Insight API](https://github.com/bitpay/insight-api) - A blockchain explorer HTTP API
-- [Insight UI](https://github.com/bitpay/insight) - A blockchain explorer web user interface
+- [Node](https://github.com/LIMXTEC/btxcore) - A full node with extended capabilities using Bitcore BTX Core
+- [Insight BTX API](https://github.com/LIMXTEC/insight-btx-api) - A blockchain explorer HTTP API
+- [Insight BTX UI](https://github.com/LIMXTEC/insight-btx-ui) - A blockchain explorer web user interface
 - [Wallet Service](https://github.com/bitpay/bitcore-wallet-service) - A multisig HD service for wallets
 - [Wallet Client](https://github.com/bitpay/bitcore-wallet-client) - A client for the wallet service
 - [CLI Wallet](https://github.com/bitpay/bitcore-wallet) - A command-line based wallet client
@@ -46,7 +46,7 @@ transaction.sign(privateKey);
 
 ## Libraries
 
-- [Lib](https://github.com/bitpay/bitcore-lib) - All of the core Bitcoin primatives including transactions, private key management and others
+- [Lib](https://github.com/LIMXTEC/btxcore-lib) - All of the core Bitcoin primatives including transactions, private key management and others
 - [Payment Protocol](https://github.com/bitpay/bitcore-payment-protocol) - A protocol for communication between a merchant and customer
 - [P2P](https://github.com/bitpay/bitcore-p2p) - The peer-to-peer networking protocol
 - [Mnemonic](https://github.com/bitpay/bitcore-mnemonic) - Implements mnemonic code for generating deterministic keys
@@ -65,7 +65,7 @@ To get community assistance and ask for help with implementation questions, plea
 
 ## Security
 
-We're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
+We're using Bitcore BTX in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
 
 If you find a security issue, please email security@bitpay.com.
 
@@ -73,7 +73,7 @@ If you find a security issue, please email security@bitpay.com.
 
 Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) file.
 
-This will generate files named `bitcore.js` and `bitcore.min.js`.
+This will generate files named `btxcore.js` and `btxcore.min.js`.
 
 You can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/bitpay/bitcore/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).
 
@@ -84,6 +84,7 @@ To verify signatures, use the following PGP keys:
 
 ## License
 
-Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/LIMXTEC/btxcore/blob/master/LICENSE).
 
 Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
+Copyright 2018 The Bitcore BTX Core Developers
