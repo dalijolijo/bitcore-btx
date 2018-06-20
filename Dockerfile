@@ -6,6 +6,6 @@ RUN groupadd btxcore
 RUN useradd btxcore -m -s /bin/bash -g btxcore
 ENV HOME /home/btxcore
 USER btxcore
-RUN curl -o- https://raw.githubusercontent.com/dalijolijo/bitcore-docker/master/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/LIMXTEC/btxcore/btx-support/install.sh | bash
 RUN /bin/bash -l -c "nvm install v10 && nvm alias default v10"
 RUN /bin/bash -l -c "npm install btxcore -g"
