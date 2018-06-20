@@ -6,7 +6,7 @@
   "authors": [
     "BitPay, Inc."
   ],
-  "description": "A pure, powerful core for your bitcore BTX project.",
+  "description": "A pure, powerful core for your Bitcore (BTX) project.",
   "moduleType": [
     "globals"
   ],
