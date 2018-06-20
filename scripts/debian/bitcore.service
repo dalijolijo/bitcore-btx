@@ -4,15 +4,15 @@ Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/opt/bitcore
-ExecStart=/usr/opt/bitcore/bin/bitcored
+WorkingDirectory=/usr/opt/btxcore
+ExecStart=/usr/opt/btxcore/bin/btxcored
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=15
-User=bitcore
-ExecStartPre=/bin/mkdir -p /run/bitcore
-ExecStartPre=/bin/chown bitcore:bitcore /run/bitcore
-ExecStartPre=/bin/chmod 755 /run/bitcore
+User=btxcore
+ExecStartPre=/bin/mkdir -p /run/btxcore
+ExecStartPre=/bin/chown btxcore:btxcore /run/btxcore
+ExecStartPre=/bin/chmod 755 /run/btxcore
 PermissionsStartOnly=true
 TimeoutStopSec=300
 
