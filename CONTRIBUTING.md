@@ -1,7 +1,7 @@
 Contributing to BTXCore
 =======
 
-We're working hard to make *BTXCore* the most powerful JavaScript library for working with Bitcore BTX. Our goal is to have *BTXCore* be a library that can be used by anyone interested in Bitcore (BTX), and to level expertise differences with great design and documentation.
+We're working hard to make *BTXCore* the most powerful JavaScript library for working with Bitcore (BTX). Our goal is to have *BTXCore* be a library that can be used by anyone interested in Bitcore (BTX), and to level expertise differences with great design and documentation.
 
 ## Community
 
@@ -246,7 +246,7 @@ git checkout -b remove/some-file
 
 We expect pull requests to be rebased to the master branch before merging:
 ```sh
-git remote add bitpay git@github.com:LIMXTEC/btxcore
+git remote add bitpay git@github.com:LIMXTEC/btxcore.git
 git pull --rebase bitpay master
 ```
 
