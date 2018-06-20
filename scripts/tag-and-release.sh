@@ -3,10 +3,10 @@ set -e
 
 ######### Adjust these variables as needed ################
 
-insightApiDir="${HOME}/source/insight-api"
-insightUIDir="${HOME}/source/insight-ui"
-bitcoreDir="${HOME}/source/bitcore"
-bitcoreNodeDir="${HOME}/source/bitcore-node"
+insightApiDir="${HOME}/source/insight-btx-api"
+insightUIDir="${HOME}/source/insight-btx-ui"
+btxcoreDir="${HOME}/source/btxcore"
+btxcoreNodeDir="${HOME}/source/btxcore-node"
 
 ###########################################################
 
@@ -17,9 +17,9 @@ bump_version () {
 }
 
 set_deps () {
-  sed -i '' -e "s/\"bitcore-node\"\: .*$/\"bitcore-node\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-api\"\: .*$/\"insight-api\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-ui\"\: .*$/\"insight-ui\"\: \"bitpay\/insight\#${tag}\"/g" package.json
+  sed -i '' -e "s/\"btxcore-node\"\: .*$/\"btxcore-node\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"insight-btx-api\"\: .*$/\"insight-btx-api\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"insight-btx-ui\"\: .*$/\"insight-btx-ui\"\: \"${tag}\"/g" package.json
 }
 
 tag="${1}"
@@ -33,13 +33,13 @@ fi
 
 
 #############################################
-# bitcore-node
+# btxcore-node
 #############################################
-function bitcoreNode() {
+function btxcoreNode() {
   echo ""
-  echo "Starting with bitcore-node..."
+  echo "Starting with btxcore-node..."
   sleep 2
-  pushd "${bitcoreNodeDir}"
+  pushd "${btxcoreNodeDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -58,7 +58,7 @@ function bitcoreNode() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore-node..."
+  echo "Committing changes for btxcore-node..."
   sleep 2
   git commit -S
 
@@ -83,11 +83,11 @@ function bitcoreNode() {
 }
 
 #############################################
-# insight-api
+# insight-btx-api
 #############################################
 function insightApi() {
   echo ""
-  echo "Releasing insight-api..."
+  echo "Releasing insight-btx-api..."
   sleep 2
   pushd "${insightApiDir}"
 
@@ -108,7 +108,7 @@ function insightApi() {
   fi
 
   echo ""
-  echo "Committing changes for insight-api..."
+  echo "Committing changes for insight-btx-api..."
   sleep 2
   git commit -S
 
@@ -133,11 +133,11 @@ function insightApi() {
 }
 
 #############################################
-# insight-ui
+# insight-btx-ui
 #############################################
 function insightUi() {
   echo ""
-  echo "Releasing insight-ui..."
+  echo "Releasing insight-btx-ui..."
   sleep 2
   pushd "${insightUIDir}"
 
@@ -158,7 +158,7 @@ function insightUi() {
   fi
 
   echo ""
-  echo "Committing changes for insight-ui..."
+  echo "Committing changes for insight-btx-ui..."
   sleep 2
   git commit -S
 
@@ -183,13 +183,13 @@ function insightUi() {
 }
 
 #############################################
-# bitcore
+# btxcore
 #############################################
-function bitcore() {
+function btxcore() {
   echo ""
-  echo "Releasing bitcore..."
+  echo "Releasing btxcore..."
   sleep 2
-  pushd "${bitcoreDir}"
+  pushd "${btxcoreDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -210,7 +210,7 @@ function bitcore() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore..."
+  echo "Committing changes for btxcore..."
   sleep 2
   git commit -S
 
@@ -243,10 +243,10 @@ echo "Assuming projects at ${HOME}/source..."
 
 releases="${2}"
 if [ -z "${releases}" ]; then
-  bitcoreNode
+  btxcoreNode
   insightApi
   insightUi
-  bitcore
+  btxcore
 else
   eval "${releases}"
 fi
