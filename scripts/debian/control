@@ -1,4 +1,4 @@
-Package: bitcore
+Package: btxcore
 Version: {{ deb_package_version }}
 Section: base
 Priority: optional
