@@ -1,18 +1,18 @@
 [Unit]
-Description=Bitcoin Core for Bitcore
+Description=Bitcore (BTX) Core for BTXCore
 Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/opt/bitcore
-ExecStart=/usr/bin/bitcore-bitcoind -datadir=/home/bitcore/.bitcore/data/
+WorkingDirectory=/usr/opt/btxcore
+ExecStart=/usr/bin/btxcore-btxcored -datadir=/home/btxcore/.btxcore/data/
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=15
-User=bitcore
-ExecStartPre=/bin/mkdir -p /run/bitcore
-ExecStartPre=/bin/chown bitcore:bitcore /run/bitcore
-ExecStartPre=/bin/chmod 755 /run/bitcore
+User=btxcore
+ExecStartPre=/bin/mkdir -p /run/btxcore
+ExecStartPre=/bin/chown btxcore:btxcore /run/btxcore
+ExecStartPre=/bin/chmod 755 /run/btxcore
 PermissionsStartOnly=true
 TimeoutStopSec=300
 
