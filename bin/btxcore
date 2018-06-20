@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 if (parseInt(process.version.split('.')[0].slice(1)) < 8) {
-  throw new Error('Bitcore requires Node version 8 or higher.');
+  throw new Error('BTXCore requires Node version 8 or higher.');
 }
 
-var bitcore = require('btxcore-node/lib/cli/bitcore');
+var btxcore = require('btxcore-node/lib/cli/btxcore');
 var path = require('path');
 var servicesPath = path.resolve(__dirname, '../');
 var additionalServices = ['insight-btx-api', 'insight-btx-ui'];
-bitcore(servicesPath, additionalServices);
+btxcore(servicesPath, additionalServices);
