@@ -8,7 +8,7 @@ process=false
 
 ########################################
 
-# deploys latest bitcore to application servers over ssh
+# deploys latest BTXCore to application servers over ssh
 
 if [ -z "${1}" ]; then
   echo 'no server file given, exiting.'
@@ -37,15 +37,15 @@ function execCmd() {
 function deploy () {
 
   # stop the server
-  cmd="sudo service bitcored stop"
+  cmd="sudo service btxcored stop"
   execCmd
 
-  # run npm install -g bitcore@beta
-  cmd="sudo su - bitcore -c 'npm install -g bitcore@beta'"
+  # run npm install -g btxcore@beta
+  cmd="sudo su - btxcore -c 'npm install -g btxcore@beta'"
   execCmd
 
   # start server
-  cmd="sudo service bitcored start"
+  cmd="sudo service btxcored start"
   execCmd
 
 }
@@ -87,7 +87,7 @@ while IFS='' read -r server || [[ -n "$server" ]]; do
   if [ -z "${logType}" ]; then
     logCmd="sudo journalctl -f"
   else
-    logCmd="sudo tail -f /var/log/upstart/bitcored_testnet_new.log"
+    logCmd="sudo tail -f /var/log/upstart/btxcored_testnet_new.log"
   fi
 
   sshCmd="${ssh}${port} ${host} "
