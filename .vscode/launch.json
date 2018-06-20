@@ -5,8 +5,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "bitcored",
-      "program": "${workspaceRoot}/bin/bitcored"
+      "name": "btxcored",
+      "program": "${workspaceRoot}/bin/btxcored"
     }
   ]
 }
