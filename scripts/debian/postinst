@@ -3,35 +3,35 @@ set -e
 set -o pipefail
 
 # add group
-if ! getent group | grep -q "^bitcore:" ; then
-    echo "Creating system group: bitcore"
-    groupadd --system bitcore
+if ! getent group | grep -q "^btxcore:" ; then
+    echo "Creating system group: btxcore"
+    groupadd --system btxcore
 fi
 
 # add user
-if ! getent passwd | grep -q "^bitcore:"; then
-    echo "Creating bitcore system user"
-    useradd --gid "bitcore" --system -m bitcore
+if ! getent passwd | grep -q "^btxcore:"; then
+    echo "Creating btxcore system user"
+    useradd --gid "btxcore" --system -m btxcore
 fi
 
 # build nodejs addons
-cd "/usr/opt/bitcore"
-SKIP_BITCOIN_DOWNLOAD=1 npm rebuild
+cd "/usr/opt/btxcore"
+SKIP_BITCORE_DOWNLOAD=1 npm rebuild
 
 # setup data directory
-mkdir -p "/home/bitcore/.bitcore/data"
-chown -R bitcore:bitcore "/home/bitcore/.bitcore"
+mkdir -p "/home/btxcore/.btxcore/data"
+chown -R btxcore:btxcore "/home/btxcore/.btxcore"
 
-# start bitcore
+# start btxcore
 if hash service 2> /dev/null; then
-    service bitcore start || echo "bitcore could not be registered or started"
+    service btxcore start || echo "btxcore could not be registered or started"
 elif hash start 2> /dev/null; then
-    start bitcore || echo "bitcore could not be registered or started"
+    start btxcore || echo "btxcore could not be registered or started"
 elif hash systemctl 2> /dev/null; then
     {
-        systemctl enable "bitcore.service" && \
-            systemctl start "bitcore.service"
-    } || echo "bitcore could not be registered or started"
+        systemctl enable "btxcore.service" && \
+            systemctl start "btxcore.service"
+    } || echo "btxcore could not be registered or started"
 else
-    echo 'Your system does not appear to use upstart or systemd, so bitcore could not be started'
+    echo 'Your system does not appear to use upstart or systemd, so btxcore could not be started'
 fi
