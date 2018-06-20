@@ -1,7 +1,7 @@
 {
   "name": "btxcore",
   "version": "5.0.0-beta.44",
-  "description": "A platform to build bitcoin and blockchain-based applications.",
+  "description": "A platform to build Bitcore (BTX) and blockchain-based applications.",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -40,7 +40,7 @@
     "btxcore-lib": "5.0.0-beta.1",
     "btxcore-node": "5.0.0-beta.44",
     "insight-btx-api": "5.0.0-beta.44",
-    "insight-btx-ui": "bitpay/insight#v5.0.0-beta.44"
+    "insight-btx-ui": "5.0.0-beta.44"
   },
   "license": "MIT",
   "devDependencies": {
