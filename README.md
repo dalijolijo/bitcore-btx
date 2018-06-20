@@ -38,7 +38,7 @@ transaction.sign(privateKey);
 - [Node](https://github.com/LIMXTEC/btxcore) - A full node with extended capabilities using Bitcore BTX Core
 - [Insight BTX API](https://github.com/LIMXTEC/insight-btx-api) - A blockchain explorer HTTP API
 - [Insight BTX UI](https://github.com/LIMXTEC/insight-btx-ui) - A blockchain explorer web user interface
-- [Wallet Service](https://github.com/bitpay/bitcore-wallet-service) - A multisig HD service for wallets
+- [Wallet Service](https://github.com/LIMXTEC/btxcore-wallet-service) - A multisig HD service for wallets
 - [Wallet Client](https://github.com/bitpay/bitcore-wallet-client) - A client for the wallet service
 - [CLI Wallet](https://github.com/bitpay/bitcore-wallet) - A command-line based wallet client
 - [Angular Wallet Client](https://github.com/bitpay/angular-bitcore-wallet-client) - An Angular based wallet client
