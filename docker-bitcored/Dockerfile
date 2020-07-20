@@ -8,7 +8,7 @@ COPY ./CHECKSUM /tmp
 RUN apt-get update && \
     apt-get install -y --no-install-recommends wget ca-certificates tar software-properties-common unzip
 RUN VERSION=`cat /tmp/VERSION` && \
-    wget https://github.com/dalijolijo/BitCore/releases/download/${VERSION}/bitcore-x86_64-linux-gnu_no-wallet.tar.gz -O /tmp/prebuilt.tar.gz
+    wget https://github.com/LIMXTEC/BitCore/releases/download/${VERSION}/bitcore-x86_64-linux-gnu_no-wallet.tar.gz -O /tmp/prebuilt.tar.gz
 RUN sha256sum /tmp/prebuilt.tar.gz && \
     echo "$(cat /tmp/CHECKSUM)  /tmp/prebuilt.tar.gz" | sha256sum -c
 RUN tar xzf /tmp/prebuilt.tar.gz -C /tmp/
