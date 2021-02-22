@@ -79,5 +79,13 @@ CHECK_EXIST_DB=$(docker ps | grep "mongodb")
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
 
+CHECK_EXIST_APACHE=$(systemctl status apache2 | grep dead)
+    if [ -z "$CHECK_EXIST_APACHE" ]; then
+        ERROR_MSG="The apache2 webserver is dead. Try to restart apache2 service..."
+        systemctl restart apache2
+        TELEGRAM_MSG="$CHECK_SERVER : $ERROR_MSG"
+        /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
+    fi
+
 #Cleanup memory
-sync; echo 1 > /proc/sys/vm/drop_caches
+#sync; echo 1 > /proc/sys/vm/drop_caches
