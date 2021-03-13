@@ -44,7 +44,7 @@ fi
 pushd /root/insight/bitcore-btx/ >/dev/null
 source .env_telegram
 
-CHECK_RESTART=$(docker ps | grep "Restarting")
+CHECK_RESTART=$(docker ps | grep "minutes" || docker ps | grep "seconds" || docker ps | grep "Restarting")
     if [ -n "$CHECK_RESTART" ]; then
         ERROR_MSG="The bitcore-node docker container restarts."
         TELEGRAM_MSG="$CHECK_SERVER : $ERROR_MSG"
