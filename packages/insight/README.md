@@ -16,5 +16,5 @@ npm run insight
 To use a specific network / chain set the `NETWORK` and `CHAIN` environment variable, e.g.:
 
 ```sh
-NETWORK=testnet CHAIN=BCH npm start
+NETWORK=mainnet CHAIN=BTX npm start
 ```
