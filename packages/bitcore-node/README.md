@@ -44,6 +44,23 @@ Set up your bitcore.config.json file in ./bitcore
           }
         }
       },
+      "BTX": {
+        "mainnet": {
+          "chainSource": "p2p",
+          "trustedPeers": [
+            {
+              "host": "172.21.0.10",
+              "port": 8555
+            }
+          ],
+          "rpc": {
+            "host": "172.21.0.10",
+            "port": 8556,
+            "username": "username",
+            "password": "password"
+          }
+        }
+      },
       "BCH": {
         "mainnet": {
           "parentChain": "BTC",
