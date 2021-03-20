@@ -58,7 +58,7 @@
     "typescript",
     "bitcoin",
     "bitcoin-cash",
-    "bitcoin-btx",
+    "bitcore-btx",
     "ethereum",
     "node"
   ],
