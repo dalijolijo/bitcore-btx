@@ -1,27 +1,94 @@
 version: '3'
+
 services:
-  database:
+  bitcored:
+    build:
+      context: ./docker-bitcored
+      dockerfile: ./Dockerfile
+    image: bitcored
+    container_name: bitcored
+    command:
+      -whitebind=172.21.0.10:8555
+      -whitelist=172.21.0.13
+      -txindex=1
+      -rpcbind=172.21.0.10
+      -rpcallowip=172.21.0.0/24
+      -port=8555
+      -rpcport=8556
+      -rpcuser=btx
+      -rpcpassword=btx
+    restart: always
+    networks:
+      insight-net:
+        ipv4_address: 172.21.0.10
+    ports:
+      - 8555:8555
+    expose:
+      - 8555
+      - 8556
+    volumes:
+      - /home/bitcore:/data
+
+  mongodb:
     image: mongo:3.4-jessie
+    container_name: mongodb
+    restart: always
+    networks:
+      insight-net:
+        ipv4_address: 172.21.0.11
     ports: 
-    - 27017:27017
-    volumes: 
-    - /data/db:/data/db
-    
+      - 27017:27017
+    expose:
+      - 27017
+    volumes:
+      - /home/mongodb:/data/db
+
   bitcore-node:
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile.bitcore-node.btx
     image: bitcore-node
-    links:
-      - database
+    container_name: bitcore-node
+    restart: always
+    networks:
+      insight-net:
+        ipv4_address: 172.21.0.13
     ports:
       - 8100:8100
       - 3000:3000
     environment:
-      - DB_HOST=database
-    env_file: .env
+      - "DB_HOST=mongodb"
+      - "BITCORE_CONFIG_PATH=/bitcore/bitcore.config.json"
+    depends_on:
+      - mongodb
+      - bitcored
 
-#insight:
-  #image: insight
-  #links:
-    #- bitcore-node
-  #environment:
-    #- API_URL=bitcore-node
+  insight:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.insight.btx
+    image: insight
+    container_name: insight
+    restart: always
+    networks:
+      insight-net:
+        ipv4_address: 172.21.0.14
+    ports:
+      #- 80:80
+      - 8080:5000
+    environment:
+      - "ENV=prod"
+      - "CHAIN=BTX"
+      - "NETWORK=mainnet"
+      - "API_PREFIX=https://api.v220200132547106119.bestsrv.de/api"
+      #- "API_PREFIX=http://46.38.243.55:3000/api"
+    depends_on:
+      - bitcore-node
+
+networks:
+  insight-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/24
