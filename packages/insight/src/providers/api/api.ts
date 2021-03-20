@@ -41,7 +41,7 @@ export class ApiProvider {
   public ratesAPI = {
     btc: 'https://bitpay.com/api/rates',
     bch: 'https://bitpay.com/api/rates/bch',
-    btx: 'https://api.coinpaprika.com/v1/tickers/btx-bitcore'
+    btx: 'https://api.coinpaprika.com/v1/tickers/btx-bitcore',
     eth: 'https://bitpay.com/api/rates/eth'
   };
 
