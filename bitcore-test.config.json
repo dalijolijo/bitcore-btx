@@ -1,6 +1,6 @@
 {
   "bitcoreNode": {
-    "modules": ["./bitcoin", "./bitcoin-cash", "./ethereum", "./ripple"],
+    "modules": ["./bitcoin", "./bitcoin-cash", "./bitcore-btx", "./ethereum", "./ripple"],
     "services": {
       "api": {
         "wallets": {
