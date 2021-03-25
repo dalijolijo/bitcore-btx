@@ -1,6 +1,6 @@
 'use strict';
 
-import { BitcoreLib, BitcoreLibCash, Deriver, Transactions } from 'crypto-wallet-core';
+import { BitcoreLib, BitcoreLibCash, BitcoreLibBtx, Deriver, Transactions } from 'crypto-wallet-core';
 
 import * as _ from 'lodash';
 import { Constants } from './constants';
@@ -14,6 +14,7 @@ const Bitcore = BitcoreLib;
 const Bitcore_ = {
   btc: Bitcore,
   bch: BitcoreLibCash,
+  btx: BitcoreLibBtx,
   eth: Bitcore,
   xrp: Bitcore
 };

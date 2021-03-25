@@ -20,6 +20,7 @@ var Bitcore = CWC.BitcoreLib;
 var Bitcore_ = {
   btc: CWC.BitcoreLib,
   bch: CWC.BitcoreLibCash,
+  btx: CWC.BitcoreLibBtx,
   eth: CWC.BitcoreLib,
   xrp: CWC.BitcoreLib
 };
@@ -66,6 +67,7 @@ export class API extends EventEmitter {
   // Expose bitcore
   static Bitcore = CWC.BitcoreLib;
   static BitcoreCash = CWC.BitcoreLibCash;
+  static BitcoreBtx = CWC.BitcoreLibBtx;
 
   constructor(opts?) {
     super();
@@ -2588,12 +2590,14 @@ export class API extends EventEmitter {
         // coin, network,  multisig
         ['btc', 'livenet'],
         ['bch', 'livenet'],
+	['btx', 'livenet'],
         ['eth', 'livenet'],
         ['eth', 'testnet'],
         ['xrp', 'livenet'],
         ['xrp', 'testnet'],
         ['btc', 'livenet', true],
-        ['bch', 'livenet', true]
+	['bch', 'livenet', true],
+	['btx', 'livenet', true]
       ];
       if (key.use44forMultisig) {
         //  testing old multi sig

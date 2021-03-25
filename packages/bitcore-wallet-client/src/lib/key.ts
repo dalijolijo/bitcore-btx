@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { Constants, Utils } from './common';
 import { Credentials } from './credentials';
 
-import { BitcoreLib, BitcoreLibCash, Deriver, Transactions } from 'crypto-wallet-core';
+import { BitcoreLib, BitcoreLibCash, BitcoreLibBtx, Deriver, Transactions } from 'crypto-wallet-core';
 
 var Bitcore = BitcoreLib;
 var Mnemonic = require('bitcore-mnemonic');
@@ -279,6 +279,8 @@ export class Key {
       }
     } else if (opts.coin == 'btc') {
       coinCode = '0';
+    } else if (opts.coin == 'btx') {
+      coinCode = '160';
     } else if (opts.coin == 'eth') {
       coinCode = '60';
     } else if (opts.coin == 'xrp') {

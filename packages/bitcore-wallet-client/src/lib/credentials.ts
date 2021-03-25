@@ -178,6 +178,8 @@ export class Credentials {
           break;
       }
 
+      /// Check SLIP-0044 : Registered coin types for BIP-0044
+      // https://github.com/satoshilabs/slips/blob/master/slip-0044.md
       var coin = '0';
       if (this.network != 'livenet' && Constants.UTXO_COINS.includes(this.coin)) {
         coin = '1';
@@ -189,6 +191,8 @@ export class Credentials {
         }
       } else if (this.coin == 'btc') {
         coin = '0';
+      } else if (this.coin == 'btx') {
+        coin = '160';
       } else if (this.coin == 'eth') {
         coin = '60';
       } else if (this.coin == 'xrp') {
@@ -287,7 +291,7 @@ export class Credentials {
 
   isComplete() {
     if (!this.m || !this.n) return false;
-    if ((this.coin === 'btc' || this.coin === 'bch') && (!this.publicKeyRing || this.publicKeyRing.length != this.n))
+    if ((this.coin === 'btc' || this.coin === 'bch' || this.coin === 'btx') && (!this.publicKeyRing || this.publicKeyRing.length != this.n))
       return false;
     return true;
   }
