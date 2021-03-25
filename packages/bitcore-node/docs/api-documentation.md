@@ -1,33 +1,10 @@
-# API Documentation
+# API Documentation for BTX
 
 ## Transactions
 
-### Send Raw Transaction
-
-POST `/api/BTC/mainnet/tx/send`
-
-<details>
-<summary>
-<b>Response</b>
-</summary>
-<br>
-<b>Use Curl command in terminal to get a response</b>
-
-```sh
-curl -v POST -H "Content-Type: application/json" -d '{"rawTx":"02000000016ac3043549876ec53aa8bd4a0839c07f52211a6b880920418cbb20b54142f1cf000000006a473044022013bfe2132c843196c43993a3562868ed26b58b5667bc3f934216afcf1643b51102206d7676a5efca242255b4f9fbd1db41273164c82723b0e01f6a324e68971aacf80121035165d8ce5fa0890e14c76bdf22cdc8be9c5ee12080aad89f897cb2026b1aba2cffffffff02706f9800000000001976a914c7cb6d4f64bf68c37a052fb094f2e0ff385e8b0a88ac804a5d05000000001976a914bb89aec81ebb0812532c34d5ee997e7319012c5c88ac00000000"}' "http://localhost:3000/api/BTC/mainnet/tx/send"
-```
-
-```json
-{
-    "txid": "3b96bb7e197ef276b85131afd4a09c059cc368133a26ca04ebffb0ab4f75c8b8"
-}
-```
-
-</details>
-
 ### Get Transactions by blockHeight
 
-GET `/api/BTC/mainnet/tx?blockHeight=12`
+GET `/api/BTX/mainnet/tx?blockHeight=12`
 
 <details>
 <summary>
@@ -37,29 +14,29 @@ GET `/api/BTC/mainnet/tx?blockHeight=12`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/tx?blockHeight=12
+curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHeight=12
 ```
 
 ```json
 [
-    {
-        "_id": "5c34b35d69d5562c2fc44026",
-        "txid": "3b96bb7e197ef276b85131afd4a09c059cc368133a26ca04ebffb0ab4f75c8b8",
-        "network": "mainnet",
-        "chain": "BTC",
-        "blockHeight": 12,
-        "blockHash": "0000000027c2488e2510d1acf4369787784fa20ee084c258b58d9fbd43802b5e",
-        "blockTime": "2009-01-09T04:21:28.000Z",
-        "blockTimeNormalized": "2009-01-09T04:21:28.000Z",
-        "coinbase": true,
-        "locktime": -1,
-        "inputCount": 1,
-        "outputCount": 1,
-        "size": 134,
-        "fee": -1,
-        "value": 5000000000,
-        "confirmations": 99754
-    }
+   {
+      "blockHash" : "14ef67800d6f37104b93c08dbb724fc8e74ebb0985d7e03e724a72a09cde7b2e",
+      "blockHeight" : 12,
+      "outputCount" : 2,
+      "txid" : "47d32c2a2868f71a3897b48c57e367f530904b75a65badd8d77a95c1ad7ff096",
+      "locktime" : -1,
+      "coinbase" : true,
+      "network" : "mainnet",
+      "blockTime" : "2017-04-24T04:09:31.000Z",
+      "chain" : "BTX",
+      "confirmations" : 575847,
+      "inputCount" : 1,
+      "fee" : -1,
+      "blockTimeNormalized" : "2017-04-24T04:09:31.000Z",
+      "_id" : "5e8606816061cb14b33fc628",
+      "value" : 1250000000,
+      "size" : 145
+   }
 ]
 ```
 
@@ -67,7 +44,7 @@ curl -v localhost:3000/api/BTC/mainnet/tx?blockHeight=12
 
 ### Get Transactions by blockHash
 
-GET `/api/BTC/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd`
+GET `/api/BTX/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd`
 
 <details>
 <summary><b>Response</b></summary>
@@ -76,29 +53,29 @@ GET `/api/BTC/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace0
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd
+curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHash=e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4
 ```
 
 ```json
 [
-    {
-        "_id": "5c34b35d69d5562c2fc43eff",
-        "txid": "9b0fc92260312ce44e74ef369f5c66bbb85848f2eddd5a7a1cde251e54ccfdd5",
-        "network": "mainnet",
-        "chain": "BTC",
-        "blockHeight": 2,
-        "blockHash": "000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd",
-        "blockTime": "2009-01-09T02:55:44.000Z",
-        "blockTimeNormalized": "2009-01-09T02:55:44.000Z",
-        "coinbase": true,
-        "locktime": -1,
-        "inputCount": 1,
-        "outputCount": 1,
-        "size": 134,
-        "fee": -1,
-        "value": 5000000000,
-        "confirmations": 102293
-    }
+   {
+      "value" : 312500000,
+      "coinbase" : true,
+      "size" : 115,
+      "blockHeight" : 580395,
+      "confirmations" : -4536,
+      "chain" : "BTX",
+      "fee" : -1,
+      "blockHash" : "e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4",
+      "_id" : "5e9595ca5005e30c78f76378",
+      "inputCount" : 1,
+      "locktime" : -1,
+      "blockTime" : "2020-04-14T11:04:01.000Z",
+      "network" : "mainnet",
+      "txid" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12",
+      "blockTimeNormalized" : "2020-04-14T11:04:01.000Z",
+      "outputCount" : 1
+   }
 ]
 ```
 
@@ -106,7 +83,7 @@ curl -v localhost:3000/api/BTC/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b
 
 ### Get Transaction by txid
 
-GET `/api/BTC/mainnet/tx/:txid`
+GET `/api/BTX/mainnet/tx/:txid`
 
 <details>
 <summary><b>Response</b></summary>
@@ -115,27 +92,27 @@ GET `/api/BTC/mainnet/tx/:txid`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/tx/9b0fc92260312ce44e74ef369f5c66bbb85848f2eddd5a7a1cde251e54ccfdd5
+curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12
 ```
 
 ```json
 {
-    "_id": "5c34b35d69d5562c2fc43eff",
-    "txid": "9b0fc92260312ce44e74ef369f5c66bbb85848f2eddd5a7a1cde251e54ccfdd5",
-    "network": "mainnet",
-    "chain": "BTC",
-    "blockHeight": 2,
-    "blockHash": "000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd",
-    "blockTime": "2009-01-09T02:55:44.000Z",
-    "blockTimeNormalized": "2009-01-09T02:55:44.000Z",
-    "coinbase": true,
-    "locktime": -1,
-    "inputCount": 1,
-    "outputCount": 1,
-    "size": 134,
-    "fee": -1,
-    "value": 5000000000,
-    "confirmations": 102293
+   "fee" : -1,
+   "blockTimeNormalized" : "2020-04-14T11:04:01.000Z",
+   "txid" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12",
+   "locktime" : -1,
+   "network" : "mainnet",
+   "size" : 115,
+   "chain" : "BTX",
+   "confirmations" : -4536,
+   "value" : 312500000,
+   "outputCount" : 1,
+   "blockHash" : "e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4",
+   "blockHeight" : 580395,
+   "coinbase" : true,
+   "inputCount" : 1,
+   "_id" : "5e9595ca5005e30c78f76378",
+   "blockTime" : "2020-04-14T11:04:01.000Z"
 }
 ```
 
@@ -143,7 +120,7 @@ curl -v localhost:3000/api/BTC/mainnet/tx/9b0fc92260312ce44e74ef369f5c66bbb85848
 
 ### Get Authhead
 
-GET `/BTC/mainnet/tx/:txid/authhead`
+GET `/BTX/mainnet/tx/:txid/authhead`
 
 <details>
 <summary>
@@ -153,15 +130,15 @@ GET `/BTC/mainnet/tx/:txid/authhead`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/tx/3b96bb7e197ef276b85131afd4a09c059cc368133a26ca04ebffb0ab4f75c8b8/authhead
+curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/authhead
 ```
 
 ```json
 {
-    "authbase": "3b96bb7e197ef276b85131afd4a09c059cc368133a26ca04ebffb0ab4f75c8b8",
-    "chain": "BTC",
-    "identityOutputs": [],
-    "network": "mainnet"
+   "identityOutputs" : [],
+   "network" : "mainnet",
+   "chain" : "BTX",
+   "authbase" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12"
 }
 ```
 
@@ -169,7 +146,7 @@ curl -v localhost:3000/api/BTC/mainnet/tx/3b96bb7e197ef276b85131afd4a09c059cc368
 
 ### Get Coins
 
-GET `/BTC/mainnet/tx/:txid/coins`
+GET `/BTX/mainnet/tx/:txid/coins`
 
 <details>
 <summary>
@@ -179,44 +156,29 @@ GET `/BTC/mainnet/tx/:txid/coins`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/tx/3b96bb7e197ef276b85131afd4a09c059cc368133a26ca04ebffb0ab4f75c8b8/coins
+curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/coins
 ```
 
 ```json
 {
-    "inputs": [],
-    "outputs": [
-        {
-          "address": "1EVzaFkkNNXq6RJh2oywwJMn8JPiq8ikDi",
-          "chain": "BTC",
-          "coinbase": true,
-          "confirmations": -1,
-          "mintHeight": 568302,
-          "mintIndex": 0,
-          "mintTxid": "4e9d6f0602ead97ad54c47530c7adeb2384edc21f3a8968ae62204c2797cdaef",
-          "network": "mainnet",
-          "script": "76a91494155788e7233d7bea9aa29feb2ed37bc878c40b88ac",
-          "spentHeight": -2,
-          "spentTxid": "",
-          "value": 1272312279,
-          "_id": "5c94f52512025b0a390269b3"
-        },
-        {
-          "address": "false",
-          "chain": "BTC",
-          "coinbase": true,
-          "confirmations": -1,
-          "mintHeight": 568302,
-          "mintIndex": 1,
-          "mintTxid": "4e9d6f0602ead97ad54c47530c7adeb2384edc21f3a8968ae62204c2797cdaef",
-          "network": "mainnet",
-          "script": "6a24aa21a9eda7e97a9c6ca28da3a62a0330946682f8c5d2aae854990ada44329e61c4d84111",
-          "spentHeight": -2,
-          "spentTxid": "",
-          "value": 0,
-          "_id": "5c94f52512025b0a390269b6"
-        }
-    ]
+   "outputs" : [
+      {
+         "mintHeight" : 580395,
+         "spentHeight" : -2,
+         "value" : 312500000,
+         "coinbase" : true,
+         "address" : "2EuXKCjoXzCTb6aUvAArkodfrPrp2iZ4AD",
+         "_id" : "5e9595ca5005e30c78f76375",
+         "spentTxid" : "",
+         "script" : "76a91414bfdd8941fe95b3d033ad669b9968d731478f8488ac",
+         "confirmations" : -1,
+         "mintTxid" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12",
+         "mintIndex" : 0,
+         "network" : "mainnet",
+         "chain" : "BTX"
+      }
+   ],
+   "inputs" : []
 }
 ```
 
@@ -226,7 +188,7 @@ curl -v localhost:3000/api/BTC/mainnet/tx/3b96bb7e197ef276b85131afd4a09c059cc368
 
 ### Get Address Transactions
 
-GET `/api/BTC/mainnet/address/:address/txs`
+GET `/api/BTX/mainnet/address/:address/txs`
 
 <details>
 <summary><b>Response</b></summary>
@@ -235,42 +197,26 @@ GET `/api/BTC/mainnet/address/:address/txs`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX/txs
+curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/txs
 ```
 
 ```json
 [
-    {
-        "_id": "5bd0b60d19b81e4567d3a10d",
-        "chain": "BTC",
-        "network": "mainnet",
-        "coinbase": true,
-        "mintIndex": 0,
-        "spentTxid": "",
-        "mintTxid": "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098",
-        "mintHeight": 1,
-        "spentHeight": -2,
-        "address": "12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX",
-        "script": "410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac",
-        "value": 5000000000,
-        "confirmations": -1
-    },
-    {
-        "_id": "5bd0be3f6d88cf473695b007",
-        "chain": "BTC",
-        "network": "mainnet",
-        "coinbase": false,
-        "mintIndex": 1,
-        "spentTxid": "",
-        "mintTxid": "d6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52",
-        "mintHeight": 127659,
-        "spentHeight": -2,
-        "address": "12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX",
-        "script": "76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac",
-        "value": 2000000,
-        "confirmations": -1
-    },
-    ...
+   {
+      "network" : "mainnet",
+      "chain" : "BTX",
+      "mintIndex" : 0,
+      "mintHeight" : 580319,
+      "_id" : "5e95682c5005e30c78dc566f",
+      "confirmations" : -1,
+      "value" : 1000000,
+      "coinbase" : false,
+      "address" : "2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg",
+      "script" : "76a9148ac6bb327e87568f16d75a041a4f7926393667ae88ac",
+      "mintTxid" : "fca422115dfc5693059ec8be06bd0db55ddafee549e68cae6db4f2fb6a1c2dd8",
+      "spentHeight" : -2,
+      "spentTxid" : ""
+   }
 ]
 ```
 
@@ -278,7 +224,7 @@ curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJ
 
 ### Get Transaction Outputs by Address
 
-GET `/api/BTC/mainnet/address/:address/?unspent=true`
+GET `/api/BTX/mainnet/address/:address/?unspent=true`
 
 <details>
 <summary><b>Response</b></summary>
@@ -287,26 +233,26 @@ GET `/api/BTC/mainnet/address/:address/?unspent=true`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX/?unspent=true
+curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/?unspent=true
 ```
 
 ```json
 [
-    {
-        "_id": "5c34b35d69d5562c2fc43e89",
-        "chain": "BTC",
-        "network": "mainnet",
-        "coinbase": true,
-        "mintIndex": 0,
-        "spentTxid": "",
-        "mintTxid": "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098",
-        "mintHeight": 1,
-        "spentHeight": -2,
-        "address": "12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX",
-        "script": "410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac",
-        "value": 5000000000,
-        "confirmations": -1
-    }
+   {
+      "mintHeight" : 580319,
+      "coinbase" : false,
+      "mintIndex" : 0,
+      "value" : 1000000,
+      "spentTxid" : "",
+      "mintTxid" : "fca422115dfc5693059ec8be06bd0db55ddafee549e68cae6db4f2fb6a1c2dd8",
+      "chain" : "BTX",
+      "script" : "76a9148ac6bb327e87568f16d75a041a4f7926393667ae88ac",
+      "address" : "2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg",
+      "_id" : "5e95682c5005e30c78dc566f",
+      "confirmations" : -1,
+      "spentHeight" : -2,
+      "network" : "mainnet"
+   }
 ]
 ```
 
@@ -314,7 +260,7 @@ curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJ
 
 ### Get Balance for an Address
 
-GET `/api/BTC/mainnet/address/:address/balance`
+GET `/api/BTX/mainnet/address/:address/balance`
 
 <details>
 <summary><b>Response</b></summary>
@@ -323,14 +269,14 @@ GET `/api/BTC/mainnet/address/:address/balance`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX/balance
+curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/balance
 ```
 
 ```json
 {
-    "confirmed": 5000000000,
-    "unconfirmed": 0,
-    "balance": 5000000000
+   "balance" : 1000000,
+   "unconfirmed" : 0,
+   "confirmed" : 1000000
 }
 ```
 
@@ -340,7 +286,7 @@ curl -v localhost:3000/api/BTC/mainnet/address/12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJ
 
 ### Get Block
 
-GET `/api/BTC/mainnet/block/:blockId`
+GET `/api/BTX/mainnet/block/:blockId`
 
 <details>
 <summary><b>Response</b></summary>
@@ -349,28 +295,28 @@ GET `/api/BTC/mainnet/block/:blockId`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/block/00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048
+curl https://api.bitcore.cc/api/BTX/mainnet/block/d95660b39e3bca7aa5159f32d484629b649796ec9ab882cc91f853a8fb238c55
 ```
 
 ```json
 {
-    "_id": "5c34b53569d5562c2fc8e65a",
-    "chain": "BTC",
-    "network": "mainnet",
-    "hash": "00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048",
-    "height": 1,
-    "version": 1,
-    "size": 215,
-    "merkleRoot": "0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098",
-    "time": "2009-01-09T02:54:25.000Z",
-    "timeNormalized": "2009-01-09T02:54:25.000Z",
-    "nonce": 2573394689,
-    "bits": 486604799,
-    "previousBlockHash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
-    "nextBlockHash": "000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd",
-    "reward": 5000000000,
-    "transactionCount": 1,
-    "confirmations": 102295
+   "network" : "mainnet",
+   "version" : 536870912,
+   "reward" : 312582721,
+   "time" : "2020-04-14T08:35:06.000Z",
+   "height" : 580331,
+   "timeNormalized" : "2020-04-14T08:35:06.000Z",
+   "hash" : "d95660b39e3bca7aa5159f32d484629b649796ec9ab882cc91f853a8fb238c55",
+   "confirmations" : -4472,
+   "transactionCount" : 3,
+   "nonce" : 661668582,
+   "size" : 562,
+   "chain" : "BTX",
+   "merkleRoot" : "003f848c56d74a1268a20d09b5af47d04d6395491993d854d4ea243ae3b608ce",
+   "bits" : 453814285,
+   "_id" : "5e9572b95005e30c78e29972",
+   "nextBlockHash" : "4fdefca9a3ac5202b3d1484aba2f45ad6ce9e62d47d0332b70ad3d41122300eb",
+   "previousBlockHash" : "ecdf13b89ac5df31706b8645fe3d72dd6a000df99ed3e67c02cda1a4e8aff922"
 }
 ```
 
@@ -378,7 +324,7 @@ curl -v localhost:3000/api/BTC/mainnet/block/00000000839a8e6886ab5951d76f4114754
 
 ### Get Current Height
 
-GET `/api/BTC/mainnet/block/tip`
+GET `/api/BTX/mainnet/block/tip`
 
 <details>
 <summary><b>Response</b></summary>
@@ -387,28 +333,28 @@ GET `/api/BTC/mainnet/block/tip`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/block/tip
+curl https://api.bitcore.cc/api/BTX/mainnet/block/tip
 ```
 
 ```json
 {
-    "_id": "5c94f6da12025b0a3904ba43",
-    "chain": "BTC",
-    "network": "mainnet",
-    "hash": "000000000000000000256c7224f97c8c508fc8b4bb5537b0d731b7d45741408a",
-    "height": 568303,
-    "version": 1073676288,
-    "size": 857826,
-    "merkleRoot": "b982461de5253a8811c8a2106d800a10d08e8a185243b863378319d759a9a899",
-    "time": "2019-03-22T14:53:30.000Z",
-    "timeNormalized": "2019-03-22T14:53:30.000Z",
-    "nonce": 4185218842,
-    "bits": 388915479,
-    "previousBlockHash": "0000000000000000002254ad0d85d25bb554f7a85f88130934fd67451653477c",
-    "nextBlockHash": "",
-    "reward": 1275381759,
-    "transactionCount": 1644,
-    "confirmations": 1
+   "time" : "2020-04-06T12:39:24.000Z",
+   "nonce" : 605478260,
+   "transactionCount" : 1,
+   "chain" : "BTX",
+   "previousBlockHash" : "ecaeed84256e48f07bc87e152312e1724f282bd97179664495bfa622f2e1e6ec",
+   "nextBlockHash" : "",
+   "size" : 196,
+   "version" : 536870912,
+   "network" : "mainnet",
+   "merkleRoot" : "1b77bfbbbcae34c62c7c0cf49cffbe84c1fa0529f174640b7071bbbf616cf71c",
+   "timeNormalized" : "2020-04-06T12:39:24.000Z",
+   "reward" : 312500000,
+   "_id" : "5e8b202c5005e30c78afb658",
+   "bits" : 453970766,
+   "processed" : true,
+   "hash" : "d188dafee200131230ab2e49f3c5f17f3af3c7b4516dee8992efee9ec6d2394a",
+   "height" : 575858
 }
 ```
 
@@ -441,19 +387,19 @@ Inside the project root directory /bitcore/ run:
 node packages/bitcore-node/build/test/benchmark/wallet-benchmark.js
 ```
 
-### Add Wallet
+### Add Wallet TODO : Update for BTX needed
 
-POST `/api/BTC/mainnet/wallet`
+POST `/api/BTX/mainnet/wallet`
 
 BODY:
 
 ```json
 {
     "name": "WalletName2",
-    "chain": "BTC",
+    "chain": "BTX",
     "network": "mainnet",
     "pubKey": "03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d",
-    "path": "m/44'/0'/0'"
+    "path": "m/44'/160'/0'"
 }
 ```
 
@@ -466,12 +412,11 @@ BODY:
 ```sh
 curl -v POST -H "Content-Type: application/json" -d '{
   "name": "WalletName2",
-  "chain": "BTC",
+  "chain": "BTX",
   "network": "mainnet",
   "pubKey": "03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d",
-  "path": "m/44'/0'/0'"
-}'
-"http://localhost:3000/api/BTC/mainnet/wallet/"
+  "path": "m/44'/160'/0'"
+}' "https://api.bitcore.cc/api/BTX/mainnet/wallet/"
 ```
 
 ```json
@@ -480,16 +425,16 @@ curl -v POST -H "Content-Type: application/json" -d '{
     "network": "mainnet",
     "name": "WalletName2",
     "pubKey": "03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d",
-    "path": "m/44'/0'/0'",
+    "path": "m/44'/160'/0'",
     "_id": "5c3631e538704e27c6f146c3"
 }
 ```
 
 </details>
 
-### Get Wallet
+### Get Wallet TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey`
+GET `/api/BTX/mainnet/wallet/:pubKey`
 
 <details>
 <summary><b>Response</b></summary>
@@ -498,7 +443,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
 ```
 
 ```json
@@ -515,9 +460,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82
 
 </details>
 
-### Import Addresses
+### Import Addresses TODO : Update for BTX needed
 
-POST `/api/BTC/mainnet/wallet/:pubKey`
+POST `/api/BTX/mainnet/wallet/:pubKey`
 
 BODY: raw jsonl wallet file of the form
 
@@ -534,7 +479,7 @@ BODY: raw jsonl wallet file of the form
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
 ```
 
 ```json
@@ -551,9 +496,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82
 
 </details>
 
-### Get Wallet Addresses
+### Get Wallet Addresses TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey/addresses`
+GET `/api/BTX/mainnet/wallet/:pubKey/addresses`
 
 <details>
 <summary><b>Response</b></summary>
@@ -562,7 +507,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey/addresses`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d/addresses
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d/addresses
 ```
 
 ```json
@@ -581,9 +526,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82
 
 </details>
 
-### Get Wallet Transactions
+### Get Wallet Transactions TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey/transactions`
+GET `/api/BTX/mainnet/wallet/:pubKey/transactions`
 
 <details>
 <summary><b>Response</b></summary>
@@ -592,7 +537,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey/transactions`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/transactions
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/transactions
 ```
 
 ```json
@@ -613,9 +558,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d95
 
 </details>
 
-### Get Balance
+### Get Balance TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey/balance`
+GET `/api/BTX/mainnet/wallet/:pubKey/balance`
 
 <details>
 <summary><b>Response</b></summary>
@@ -624,7 +569,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey/balance`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/balance
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/balance
 ```
 
 ```json
@@ -637,9 +582,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d95
 
 </details>
 
-### Get Wallet UTXOS
+### Get Wallet UTXOS TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey/utxos`
+GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
 
 <details>
 <summary><b>Response</b></summary>
@@ -648,7 +593,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey/utxos`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/utxos
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/utxos
 ```
 
 ```json
@@ -673,9 +618,9 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d95
 
 </details>
 
-### Get Wallet UTXOS
+### Get Wallet UTXOS TODO : Update for BTX needed
 
-GET `/api/BTC/mainnet/wallet/:pubKey/utxos`
+GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
 
 <details>
 <summary><b>Response</b></summary>
@@ -684,7 +629,7 @@ GET `/api/BTC/mainnet/wallet/:pubKey/utxos`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/addresses/missing
+curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/addresses/missing
 ```
 
 ```json
@@ -709,11 +654,11 @@ curl -v localhost:3000/api/BTC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d95
 
 </details>
 
-## Fee
+## Fee TODO : RPC Error
 
 ### Get Fee estimate for within N blocks
 
-GET `/api/BTC/mainnet/fee/:target`
+GET `/api/BTX/mainnet/fee/:target`
 
 <details>
 <summary><b>Response</b></summary>
@@ -722,7 +667,7 @@ GET `/api/BTC/mainnet/fee/:target`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/fee/22
+curl https://api.bitcore.cc/api/BTX/mainnet/fee/22
 ```
 
 ```json
@@ -738,7 +683,7 @@ curl -v localhost:3000/api/BTC/mainnet/fee/22
 
 ### Get Daily Transactions
 
-GET `/api/BTC/mainnet/stats/daily-transactions`
+GET `/api/BTX/mainnet/stats/daily-transactions`
 
 <details>
 <summary><b>Response</b></summary>
@@ -747,25 +692,135 @@ GET `/api/BTC/mainnet/stats/daily-transactions`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/BTC/mainnet/stats/daily-transactions
+curl https://api.bitcore.cc/api/BTX/mainnet/stats/daily-transactions
 ```
 
 ```json
 {
-    "chain": "BTC",
-    "network": "mainnet",
-    "results":
-    [
-        {
-            "date": "2009-01-09",
-            "transactionCount": 14
-        },
-        {
-            "date": "2009-01-10",
-            "transactionCount": 61
-        },
-        ...
-    ]
+   "results" : [
+      {
+         "transactionCount" : 648,
+         "date" : "2020-03-15"
+      },
+      {
+         "transactionCount" : 627,
+         "date" : "2020-03-16"
+      },
+      {
+         "transactionCount" : 608,
+         "date" : "2020-03-17"
+      },
+      {
+         "transactionCount" : 641,
+         "date" : "2020-03-18"
+      },
+      {
+         "date" : "2020-03-19",
+         "transactionCount" : 677
+      },
+      {
+         "transactionCount" : 620,
+         "date" : "2020-03-20"
+      },
+      {
+         "transactionCount" : 625,
+         "date" : "2020-03-21"
+      },
+      {
+         "date" : "2020-03-22",
+         "transactionCount" : 655
+      },
+      {
+         "transactionCount" : 613,
+         "date" : "2020-03-23"
+      },
+      {
+         "date" : "2020-03-24",
+         "transactionCount" : 665
+      },
+      {
+         "date" : "2020-03-25",
+         "transactionCount" : 663
+      },
+      {
+         "date" : "2020-03-26",
+         "transactionCount" : 591
+      },
+      {
+         "transactionCount" : 665,
+         "date" : "2020-03-27"
+      },
+      {
+         "date" : "2020-03-28",
+         "transactionCount" : 641
+      },
+      {
+         "transactionCount" : 635,
+         "date" : "2020-03-29"
+      },
+      {
+         "transactionCount" : 635,
+         "date" : "2020-03-30"
+      },
+      {
+         "transactionCount" : 588,
+         "date" : "2020-03-31"
+      },
+      {
+         "transactionCount" : 644,
+         "date" : "2020-04-01"
+      },
+      {
+         "date" : "2020-04-02",
+         "transactionCount" : 646
+      },
+      {
+         "date" : "2020-04-03",
+         "transactionCount" : 655
+      },
+      {
+         "date" : "2020-04-04",
+         "transactionCount" : 580
+      },
+      {
+         "transactionCount" : 721,
+         "date" : "2020-04-05"
+      },
+      {
+         "transactionCount" : 720,
+         "date" : "2020-04-06"
+      },
+      {
+         "transactionCount" : 730,
+         "date" : "2020-04-07"
+      },
+      {
+         "transactionCount" : 676,
+         "date" : "2020-04-08"
+      },
+      {
+         "transactionCount" : 654,
+         "date" : "2020-04-09"
+      },
+      {
+         "date" : "2020-04-10",
+         "transactionCount" : 737
+      },
+      {
+         "transactionCount" : 594,
+         "date" : "2020-04-11"
+      },
+      {
+         "transactionCount" : 689,
+         "date" : "2020-04-12"
+      },
+      {
+         "date" : "2020-04-13",
+         "transactionCount" : 662
+      }
+   ],
+   "network" : "mainnet",
+   "chain" : "BTX"
 }
 ```
 
@@ -784,31 +839,15 @@ GET `/api/status/enabled-chains`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl -v localhost:3000/api/status/enabled-chains
+curl https://api.bitcore.cc/api/status/enabled-chains
 ```
 
 ```json
 [
-    {
-        "chain": "BTC",
-        "network": "mainnet"
-    },
-    {
-        "chain": "BTC",
-        "network": "testnet"
-    },
-    {
-        "chain": "BCH",
-        "network": "mainnet"
-    },
-    {
-        "chain": "BCH",
-        "network": "testnet"
-    },
-    {
-        "chain": "BTX",
-        "network": "mainnet"
-    }
+   {
+      "network" : "mainnet",
+      "chain" : "BTX"
+   }
 ]
 ```
 
