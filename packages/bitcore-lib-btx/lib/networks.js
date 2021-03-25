@@ -145,7 +145,7 @@ addNetwork({
   networkMagic: 0xf9beb4d9,
   port: 8555,
   dnsSeeds: [
-    'seed.bitcore.biz'
+    'seed.bitcore.cc'
   ]
 });
 
