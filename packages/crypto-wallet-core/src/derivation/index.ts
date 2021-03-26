@@ -1,4 +1,5 @@
 import { BchDeriver } from './bch';
+import { BtxDeriver } from './btx';
 import { BtcDeriver } from './btc';
 import { EthDeriver } from './eth';
 import { Paths } from './paths';
