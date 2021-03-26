@@ -56,6 +56,14 @@ module.exports = {
         defaultValue: 2000
       }
     ],
+    btx: [
+      {
+        name: 'normal',
+        nbBlocks: 2,
+        multiplier: 1.05, // To fix fees < 1sat/byte
+        defaultValue: 2000
+      }
+    ],
     eth: [
       {
         name: 'urgent',
@@ -200,6 +208,7 @@ module.exports = {
   MAX_FEE_PER_KB: {
     btc: 10000 * 1000, // 10k sat/b
     bch: 10000 * 1000, // 10k sat/b
+    btx: 10000 * 1000, // 10k sat/b
     eth: 1000000000000, // 50 Gwei,
     xrp: 1000000000000
   },
@@ -207,6 +216,7 @@ module.exports = {
   MIN_TX_FEE: {
     btc: 0,
     bch: 0,
+    btx: 0,
     eth: 0,
     xrp: 0
   },
@@ -214,6 +224,7 @@ module.exports = {
   MAX_TX_FEE: {
     btc: 0.05 * 1e8,
     bch: 0.05 * 1e8,
+    btx: 0.05 * 1e8,
     eth: 1 * 1e18, // 1 eth
     xrp: 1 * 1e6 // 1 xrp
   },

@@ -49,6 +49,14 @@ module.exports = {
         url: 'https://api.bitcore.io'
       }
     },
+    btx: {
+      livenet: {
+        url: 'https://api.v220200132547106119.bestsrv.de'
+      },
+      testnet: {
+        url: 'https://api.v220200132547106119.bestsrv.de'
+      }
+    },
     eth: {
       livenet: {
         url: 'https://api-eth.bitcore.io'

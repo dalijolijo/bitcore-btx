@@ -8,7 +8,8 @@ const secp256k1 = require('secp256k1');
 const Bitcore = require('bitcore-lib');
 const Bitcore_ = {
   btc: Bitcore,
-  bch: require('bitcore-lib-cash')
+  bch: require('bitcore-lib-cash'),
+  btx: require('bitcore-lib-btx')
 };
 
 export class Utils {
@@ -236,8 +237,8 @@ export class Utils {
       return 'btc';
     } catch (e) {
       try {
-        new Bitcore_['bch'].Address(address);
-        return 'bch';
+        new Bitcore_['btx'].Address(address);
+        return 'btx';
       } catch (e) {
         return;
       }
@@ -250,7 +251,7 @@ export class Utils {
     const origObj = origAddress.toObject();
 
     const result = Bitcore_[coin].Address.fromObject(origObj);
-    return coin == 'bch' ? result.toLegacyAddress() : result.toString();
+    return coin == 'btx' ? result.toLegacyAddress() : result.toString();
   }
 }
 module.exports = Utils;

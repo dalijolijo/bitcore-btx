@@ -338,6 +338,7 @@ export class PushNotificationsService {
       btc: 'BTC',
       bit: 'bits',
       bch: 'BCH',
+      btx: 'BTX',
       eth: 'ETH',
       xrp: 'XRP',
       usdc: 'USDC',

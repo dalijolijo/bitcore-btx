@@ -15,6 +15,7 @@ const Constants = Common.Constants,
 const Bitcore = {
   btc: require('bitcore-lib'),
   bch: require('bitcore-lib-cash'),
+  btx: require('bitcore-lib-btx'),
   eth: require('bitcore-lib'),
   xrp: require('bitcore-lib')
 };

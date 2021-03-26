@@ -15,6 +15,10 @@ const PROVIDERS = {
       livenet: 'https://api.bitpay.com',
       testnet: 'https://api.bitpay.com'
     },
+    btx: {
+      livenet: 'https://api.v220200132547106119.bestsrv.de',
+      testnet: 'https://api.v220200132547106119.bestsrv.de'
+    },
     eth: {
       livenet: 'https://api-eth.bitcore.io',
       testnet: 'https://api-eth.bitcore.io'

@@ -1,6 +1,7 @@
 import { ITxProposal, IWallet, TxProposal } from '../model';
 import { WalletService } from '../server';
 import { BchChain } from './bch';
+import { BtxChain } from './btx';
 import { BtcChain } from './btc';
 import { EthChain } from './eth';
 import { XrpChain } from './xrp';
@@ -59,6 +60,7 @@ export interface IChain {
 const chain: { [chain: string]: IChain } = {
   BTC: new BtcChain(),
   BCH: new BchChain(),
+  BTX: new BtxChain(),
   ETH: new EthChain(),
   XRP: new XrpChain()
 };
