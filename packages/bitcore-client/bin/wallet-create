@@ -9,7 +9,7 @@ const promptly = require('promptly');
 program
   .version(require('../package.json').version)
   .option('--name <name>', 'REQUIRED - Wallet Name')
-  .option('--chain <chain>', 'REQUIRED - Chain (BTC/BCH/ETH, etc)')
+  .option('--chain <chain>', 'REQUIRED - Chain (BTC/BCH/BTX/ETH, etc)')
   .option(
     '--network <network>',
     'REQUIRED - Network (livenet/testnet/regtest, etc)'
