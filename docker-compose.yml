@@ -11,7 +11,6 @@ services:
       -whitebind=172.21.0.10:8555
       -whitelist=172.21.0.13
       -txindex=1
-      -maxconnections=100
       -rpcbind=172.21.0.10
       -rpcallowip=172.21.0.0/24
       -port=8555
@@ -25,8 +24,7 @@ services:
     ports:
       - 8555:8555
     expose:
-      - 8555
-      - 8556 
+      - 8556
     volumes:
       - /home/bitcore:/data
 
@@ -38,9 +36,7 @@ services:
       insight-net:
         ipv4_address: 172.21.0.11
     ports: 
-      - 27017:27017
-    expose:
-      - 27017
+      - 127.0.0.1:27017:27017
     volumes:
       - /home/mongodb:/data/db
 
@@ -75,14 +71,12 @@ services:
       insight-net:
         ipv4_address: 172.21.0.14
     ports:
-      #- 80:80
       - 8080:5000
     environment:
       - "ENV=prod"
       - "CHAIN=BTX"
       - "NETWORK=mainnet"
       - "API_PREFIX=https://api.bitcore.cc/api"
-      #- "API_PREFIX=http://46.38.243.55:3000/api"
     depends_on:
       - bitcore-node
 
