@@ -1,13 +1,5 @@
 FROM bitcore-node
-
-#EXPOSE 80
 EXPOSE 5000
 
-ENV ENV=prod
-ENV CHAIN=BTX
-ENV NETWORK=mainnet
-#ENV API_PREFIX=http://localhost:3000/api
-ENV API_PREFIX=https://api.bitcore.cc/api
-
+RUN export ENV=prod CHAIN=BTX NETWORK=mainnet API_PREFIX=https://api.bitcore.cc/api
 CMD ["npm", "--prefix=./packages/insight", "start"]
-#CMD ["npm", "start", "insight-previous"]
