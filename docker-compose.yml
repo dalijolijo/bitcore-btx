@@ -31,7 +31,7 @@ services:
       - /home/bitcore:/data
 
   mongodb:
-    image: mongo:3.4-jessie
+    image: mongo:4.4.4-bionic
     container_name: mongodb
     restart: always
     networks:
