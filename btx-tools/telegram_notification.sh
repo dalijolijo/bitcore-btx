@@ -3,7 +3,7 @@
 
 # cron job config
 # crontab -e
-#*/10 * * * * /root/insight/bitcore-btx/telegram_notification.sh > /var/log/telegram_notificationy.log 2>&1
+#*/10 * * * * /root/insight/bitcore-btx/btx-tools/telegram_notification.sh > /var/log/telegram_notificationy.log 2>&1
 
 # find MN_TELEGRAM_GROUP_ID
 #curl https://api.telegram.org/bot${MN_TELEGRAM_BOT_TOKEN}/getUpdates
@@ -29,6 +29,9 @@ while getopts ":h" opt; do
 done
 shift $((OPTIND -1))
 
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 dpkg-query -l python3-pip
 if [ $? -ne 0 ] ; then
    apt-get install -y python3-pip
@@ -41,7 +44,7 @@ if [ $? -ne 0 ] ; then
    pip3 install tgcli
 fi
 
-pushd /root/insight/bitcore-btx/ >/dev/null
+pushd /root/insight/bitcore-btx/btx-tools/ >/dev/null
 source .env_telegram
 
 CHECK_RESTART=$(docker ps | grep "minutes" || docker ps | grep "seconds" || docker ps | grep "Restarting")
@@ -79,7 +82,7 @@ CHECK_EXIST_DB=$(docker ps | grep "mongodb")
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
 
-CHECK_EXIST_APACHE=$(systemctl status apache2 | grep dead)
+CHECK_EXIST_APACHE=$(systemctl status apache2 | grep running)
     if [ -z "$CHECK_EXIST_APACHE" ]; then
         ERROR_MSG="The apache2 webserver is dead. Try to restart apache2 service..."
         systemctl restart apache2
