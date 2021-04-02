@@ -75,13 +75,18 @@ export class BaseP2PWorker<T extends IBlock = IBlock> {
   async sync() {}
 
   getIsSyncingNode(): boolean {
+   /**
+   * if (!this.lastHeartBeat) {
+   *  return false;
+   *}
+   */
     if (!this.lastHeartBeat) {
-      return false;
+     return false;
     }
     const [hostname, pid, timestamp] = this.lastHeartBeat.split(':');
     const hostNameMatches = hostname === os.hostname();
     const pidMatches = pid === process.pid.toString();
-    const timestampIsFresh = Date.now() - parseInt(timestamp) < 5 * 60 * 1000;
+    const timestampIsFresh = Date.now() - parseInt(timestamp) < 30 * 60 * 1000;
     const amSyncingNode = hostNameMatches && pidMatches && timestampIsFresh;
     return amSyncingNode;
   }
@@ -102,7 +107,7 @@ export class BaseP2PWorker<T extends IBlock = IBlock> {
       const nowSyncingNode = this.getIsSyncingNode();
       this.isSyncingNode = nowSyncingNode;
       if (wasSyncingNode && !nowSyncingNode) {
-        throw new Error('Syncing Node Renewal Failure');
+        throw new Error('Syncing Node Renewal Failure, nowSyncingNode:' + nowSyncingNode + ',  wasSyncingNode:' + wasSyncingNode);
       }
       if (!wasSyncingNode && nowSyncingNode) {
         logger.info(`This worker is now the syncing node for ${this.chain} ${this.network}`);

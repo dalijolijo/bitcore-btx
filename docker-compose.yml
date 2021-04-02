@@ -11,13 +11,13 @@ services:
       -whitebind=172.21.0.10:8555
       -whitelist=172.21.0.13
       -txindex=1
-      -maxconnections=100
       -rpcbind=172.21.0.10
       -rpcallowip=172.21.0.0/24
       -port=8555
       -rpcport=8556
       -rpcuser=btx 
       -rpcpassword=btx
+      #-maxconnections=100
     restart: always
     networks:
       insight-net:

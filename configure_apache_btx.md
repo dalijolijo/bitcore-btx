@@ -1,5 +1,10 @@
 # Configure Apache2 for BTX Insight Explorer on bitcore.cc
 
+Use the below command to enable proxy_http module
+```sh
+sudo a2enmod proxy_http
+```
+
 sites-enabled/000-default.conf
 ```sh
 #<VirtualHost 185.228.139.10>
