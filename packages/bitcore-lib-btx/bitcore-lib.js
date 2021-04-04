@@ -29622,7 +29622,7 @@ addNetwork({
   alias: 'mainnet',
   pubkeyhash: 0x03,
   privatekey: 0x80,
-  scripthash: 0x7d,
+  scripthash: 0x05,
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
   networkMagic: 0xf9beb4d9,
