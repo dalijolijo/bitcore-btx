@@ -172,12 +172,12 @@ Script.fromASM = function(str) {
 };
 
 Script.fromHex = function(str) {
-  return new Script(new buffer.Buffer(str, 'hex'));
+  return new Script(Buffer.from(str, 'hex'));
 };
 
 Script.fromString = function(str) {
   if (JSUtil.isHexa(str) || str.length === 0) {
-    return new Script(new buffer.Buffer(str, 'hex'));
+    return new Script(Buffer.from(str, 'hex'));
   }
   var script = new Script();
   script.chunks = [];
@@ -516,12 +516,12 @@ Script.prototype.isDataOut = function() {
 
 /**
  * Retrieve the associated data for this script.
- * In the case of a pay to public key hash or P2SH, return the hash.
+ * In the case of a pay to public key hash, P2SH, P2WSH, or P2WPKH, return the hash.
  * In the case of a standard OP_RETURN, return the data
  * @returns {Buffer}
  */
 Script.prototype.getData = function() {
-  if (this.isDataOut() || this.isScriptHashOut()) {
+  if (this.isDataOut() || this.isScriptHashOut() || this.isWitnessScriptHashOut() || this.isWitnessPublicKeyHashOut()) {
     if (_.isUndefined(this.chunks[1])) {
       return Buffer.alloc(0);
     } else {
@@ -875,6 +875,24 @@ Script.buildPublicKeyHashOut = function(to) {
 };
 
 /**
+ * @returns {Script} a new pay to witness v0 output for the given
+ * address
+ * @param {Address} to - destination address
+ */
+Script.buildWitnessV0Out = function(to) {
+  $.checkArgument(!_.isUndefined(to));
+  $.checkArgument(to instanceof Address || _.isString(to));
+  if (_.isString(to)) {
+    to = new Address(to);
+  }
+  var s = new Script();
+  s.add(Opcode.OP_0)
+    .add(to.hashBuffer);
+  s._network = to.network;
+  return s;
+};
+
+/**
  * @returns {Script} a new pay to public key output for the given
  *  public key
  */
@@ -987,6 +1005,10 @@ Script.fromAddress = function(address) {
     return Script.buildScriptHashOut(address);
   } else if (address.isPayToPublicKeyHash()) {
     return Script.buildPublicKeyHashOut(address);
+  } else if (address.isPayToWitnessPublicKeyHash()) {
+    return Script.buildWitnessV0Out(address);
+  } else if (address.isPayToWitnessScriptHash()) {
+    return Script.buildWitnessV0Out(address);
   }
   throw new errors.Script.UnrecognizedAddress(address);
 };
@@ -1022,6 +1044,12 @@ Script.prototype._getOutputAddressInfo = function() {
   } else if (this.isPublicKeyHashOut()) {
     info.hashBuffer = this.getData();
     info.type = Address.PayToPublicKeyHash;
+  } else if (this.isWitnessScriptHashOut()) {
+    info.hashBuffer = this.getData();
+    info.type = Address.PayToWitnessScriptHash;
+  } else if (this.isWitnessPublicKeyHashOut()) {
+    info.hashBuffer = this.getData();
+    info.type = Address.PayToWitnessPublicKeyHash;
   } else {
     return false;
   }
@@ -1063,7 +1091,7 @@ Script.prototype.toAddress = function(network) {
 };
 
 /**
- * Analogous to bitcored's FindAndDelete. Find and delete equivalent chunks,
+ * Analogous to bitcoind's FindAndDelete. Find and delete equivalent chunks,
  * typically used with push data chunks.  Note that this will find and delete
  * not just the same data, but the same data with the same push data op as
  * produced by default. i.e., if a pushdata in a tx does not use the minimal
@@ -1087,7 +1115,7 @@ Script.prototype.findAndDelete = function(script) {
 };
 
 /**
- * Comes from bitcored's script interpreter CheckMinimalPush function
+ * Comes from bitcoind's script interpreter CheckMinimalPush function
  * @returns {boolean} if the chunk {i} is the smallest way to push that particular data.
  */
 Script.prototype.checkMinimalPush = function(i) {
@@ -1120,7 +1148,7 @@ Script.prototype.checkMinimalPush = function(i) {
 };
 
 /**
- * Comes from bitcored's script DecodeOP_N function
+ * Comes from bitcoind's script DecodeOP_N function
  * @param {number} opcode
  * @returns {number} numeric value in range of 0 to 16
  */
@@ -1135,7 +1163,7 @@ Script.prototype._decodeOP_N = function(opcode) {
 };
 
 /**
- * Comes from bitcored's script GetSigOpCount(boolean) function
+ * Comes from bitcoind's script GetSigOpCount(boolean) function
  * @param {boolean} use current (true) or pre-version-0.6 (false) logic
  * @returns {number} number of signature operations required by this script
  */

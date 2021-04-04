@@ -61,6 +61,7 @@ function get(arg, keys) {
  * @param {Number} data.pubkeyhash - The publickey hash prefix
  * @param {Number} data.privatekey - The privatekey prefix
  * @param {Number} data.scripthash - The scripthash prefix
+ * @param {string} data.bech32prefix - The native segwit prefix
  * @param {Number} data.xpubkey - The extended public key magic
  * @param {Number} data.xprivkey - The extended private key magic
  * @param {Number} data.networkMagic - The network magic number
@@ -78,6 +79,7 @@ function addNetwork(data) {
     pubkeyhash: data.pubkeyhash,
     privatekey: data.privatekey,
     scripthash: data.scripthash,
+    bech32prefix: data.bech32prefix,
     xpubkey: data.xpubkey,
     xprivkey: data.xprivkey
   });
@@ -140,12 +142,13 @@ addNetwork({
   pubkeyhash: 0x03,
   privatekey: 0x80,
   scripthash: 0x05,
+  bech32prefix: 'btx',
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
   networkMagic: 0xf9beb4d9,
   port: 8555,
   dnsSeeds: [
-    'seed.bitcore.biz'
+    'seed.bitcore.cc'
   ]
 });
 
@@ -183,6 +186,7 @@ addNetwork({
   pubkeyhash: 0x6f,
   privatekey: 0xef,
   scripthash: 0xc4,
+  bech32prefix: 'tbtx',
   xpubkey: 0x043587cf,
   xprivkey: 0x04358394,
   networkMagic: 0xfabfb5da,
