@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 #
 # Configure megacoin.conf
@@ -37,4 +37,3 @@ addnode=45.90.4.232
 fi
 
 exec megacoind -datadir=${DATA} -conf=${CONF} "$@"
-

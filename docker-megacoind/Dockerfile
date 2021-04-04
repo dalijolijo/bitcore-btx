@@ -6,7 +6,28 @@ COPY ./VERSION /tmp
 COPY ./CHECKSUM /tmp
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends wget ca-certificates tar software-properties-common unzip && \
+    apt-get install -y --no-install-recommends apt-utils \
+                        autoconf \
+                        automake \
+                        autotools-dev \
+                        build-essential \
+                        ca-certificates \
+                        libboost-all-dev \
+                        libevent-dev \
+                        libminiupnpc-dev \
+                        libssl-dev \
+                        libtool \
+                        libzmq5-dev \
+                        pkg-config \
+                        software-properties-common \
+                        tar \
+                        unzip \
+                        wget && \
+    add-apt-repository -y ppa:bitcoin/bitcoin && \
+    apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y  libdb4.8-dev \
+                        libdb4.8++-dev && \
     VERSION=`cat /tmp/VERSION` && \
     wget https://github.com/dalijolijo/Megacoin/releases/download/${VERSION}/megacoin-x86_64-linux-gnu_no-wallet.tar.gz -O /tmp/prebuilt.tar.gz && \
     sha256sum /tmp/prebuilt.tar.gz && \
