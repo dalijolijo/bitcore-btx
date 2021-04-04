@@ -2,8 +2,8 @@ import { ITxProposal, IWallet, TxProposal } from '../model';
 import { WalletService } from '../server';
 import { BchChain } from './bch';
 import { BtcChain } from './btc';
-import { MecChain } from './mec';
 import { EthChain } from './eth';
+import { MecChain } from './mec';
 const Common = require('../common');
 const Constants = Common.Constants;
 

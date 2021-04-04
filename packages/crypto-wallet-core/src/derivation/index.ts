@@ -1,7 +1,7 @@
 import { BchDeriver } from './bch';
 import { BtcDeriver } from './btc';
-import { MecDeriver } from './mec';
 import { EthDeriver } from './eth';
+import { MecDeriver } from './mec';
 import { Paths } from './paths';
 import { XrpDeriver } from './xrp';
 
