@@ -16,7 +16,7 @@ import { Storage } from './storage';
 const $ = require('preconditions').singleton();
 const deprecatedServerMessage = require('../deprecated-serverMessages');
 const serverMessages = require('../serverMessages');
-const BTXAddressTranslator = require('./btxaddresstranslator');
+const MECAddressTranslator = require('./mecaddresstranslator');
 
 log.debug = log.verbose;
 log.disableColor();
@@ -28,7 +28,7 @@ import { Validation } from 'crypto-wallet-core';
 const Bitcore = require('bitcore-lib');
 const Bitcore_ = {
   btc: Bitcore,
-  btx: require('bitcore-lib-btx'),
+  mec: require('bitcore-lib-mec'),
   eth: Bitcore
 };
 
@@ -476,7 +476,7 @@ export class WalletService {
    * @param {number} opts.n - Total copayers.
    * @param {string} opts.pubKey - Public key to verify copayers joining have access to the wallet secret.
    * @param {string} opts.singleAddress[=false] - The wallet will only ever have one address.
-   * @param {string} opts.coin[='btc'] - The coin for this wallet (btc, btx).
+   * @param {string} opts.coin[='btc'] - The coin for this wallet (btc, mec).
    * @param {string} opts.network[='livenet'] - The Bitcoin network for this wallet.
    * @param {string} opts.account[=0] - BIP44 account number
    * @param {string} opts.usePurpose48 - for Multisig wallet, use purpose=48
@@ -484,13 +484,13 @@ export class WalletService {
   createWallet(opts, cb) {
     let pubKey;
 
-    if (opts.coin === 'btx' && opts.n > 1) {
+    if (opts.coin === 'mec' && opts.n > 1) {
       const version = Utils.parseVersion(this.clientVersion);
       if (version && version.agent === 'bwc') {
         if (version.major < 8 || (version.major === 8 && version.minor < 3)) {
           return cb(new ClientError(
             Errors.codes.UPGRADE_NEEDED,
-            'BWC clients < 8.3 are no longer supported for multisig BTX wallets.'
+            'BWC clients < 8.3 are no longer supported for multisig MEC wallets.'
           ));
         }
       }
@@ -597,7 +597,7 @@ export class WalletService {
       if (!wallet) return cb(Errors.WALLET_NOT_FOUND);
 
       // cashAddress migration
-      if (wallet.coin != 'btx' || wallet.nativeCashAddr)
+      if (wallet.coin != 'mec' || wallet.nativeCashAddr)
         return cb(null, wallet);
 
       // only for testing
@@ -1059,7 +1059,7 @@ export class WalletService {
    * Joins a wallet in creation.
    * @param {Object} opts
    * @param {string} opts.walletId - The wallet id.
-   * @param {string} opts.coin[='btc'] - The expected coin for this wallet (btc, btx).
+   * @param {string} opts.coin[='btc'] - The expected coin for this wallet (btc, mec).
    * @param {string} opts.name - The copayer name.
    * @param {string} opts.xPubKey - Extended Public Key for this copayer.
    * @param {string} opts.requestPubKey - Public Key used to check requests from this copayer.
@@ -1100,13 +1100,13 @@ export class WalletService {
         if (err) return cb(err);
         if (!wallet) return cb(Errors.WALLET_NOT_FOUND);
 
-        if (opts.coin === 'btx' && wallet.n > 1) {
+        if (opts.coin === 'mec' && wallet.n > 1) {
           const version = Utils.parseVersion(this.clientVersion);
           if (version && version.agent === 'bwc') {
             if (version.major < 8 || (version.major === 8 && version.minor < 3)) {
               return cb(new ClientError(
                 Errors.codes.UPGRADE_NEEDED,
-                'BWC clients < 8.3 are no longer supported for multisig BTX wallets.',
+                'BWC clients < 8.3 are no longer supported for multisig MEC wallets.',
               ));
             }
           }
@@ -1381,9 +1381,9 @@ export class WalletService {
           if (err) return cb(err);
           if (duplicate)
             return cb(null, address);
-          if (wallet.coin == 'btx' && opts.noCashAddr) {
+          if (wallet.coin == 'mec' && opts.noCashAddr) {
             address = _.cloneDeep(address);
-            address.address = BTXAddressTranslator.translate(
+            address.address = MECAddressTranslator.translate(
               address.address,
               'copay'
             );
@@ -1868,7 +1868,7 @@ export class WalletService {
               : -1;
           if (feePerKb < 0) failed.push(p);
 
-          // NOTE: ONLY BTC/BTX expect feePerKb to be Bitcoin amounts
+          // NOTE: ONLY BTC/MEC expect feePerKb to be Bitcoin amounts
           // others... expect wei.
 
           return ChainService.convertFeePerKb(coin, p, feePerKb);
@@ -2467,8 +2467,8 @@ export class WalletService {
           next();
         },
         (next) => {
-          // check outputs are on 'copay' format for BTX
-          if (wallet.coin != 'btx') return next();
+          // check outputs are on 'copay' format for MEC
+          if (wallet.coin != 'mec') return next();
           if (!opts.noCashAddr) return next();
 
           // TODO remove one cashaddr is used internally (noCashAddr flag)?
@@ -2491,7 +2491,7 @@ export class WalletService {
 
             let newAddr;
             try {
-              newAddr = Bitcore_['btx'].Address(x.toAddress).toLegacyAddress();
+              newAddr = Bitcore_['mec'].Address(x.toAddress).toLegacyAddress();
             } catch (e) {
               return next(e);
             }
@@ -2574,7 +2574,7 @@ export class WalletService {
    * @param {Array} opts.inputs - Optional. Inputs for this TX
    * @param {number} opts.fee - Optional. Use an fixed fee for this TX (only when opts.inputs is specified)
    * @param {Boolean} opts.noShuffleOutputs - Optional. If set, TX outputs won't be shuffled. Defaults to false
-   * @param {Boolean} [opts.noCashAddr] - do not use cashaddress for btx
+   * @param {Boolean} [opts.noCashAddr] - do not use cashaddress for mec
    * @returns {TxProposal} Transaction proposal. outputs address format will use the same format as inpunt.
    */
   createTx(opts, cb) {
@@ -2684,9 +2684,9 @@ export class WalletService {
                 (next) => {
                   if (opts.dryRun) return next();
 
-                  if (txp.coin == 'btx') {
+                  if (txp.coin == 'mec') {
                     if (opts.noCashAddr && txp.changeAddress) {
-                      txp.changeAddress.address = BTXAddressTranslator.translate(
+                      txp.changeAddress.address = MECAddressTranslator.translate(
                         txp.changeAddress.address,
                         'copay'
                       );
@@ -2699,9 +2699,9 @@ export class WalletService {
               (err) => {
                 if (err) return cb(err);
 
-                if (txp.coin == 'btx') {
+                if (txp.coin == 'mec') {
                   if (opts.returnOrigAddrOutputs) {
-                    log.info('Returning Orig BTX address outputs for compat');
+                    log.info('Returning Orig MEC address outputs for compat');
                     txp.outputs = opts.origAddrOutputs;
                   }
                 }
@@ -2720,7 +2720,7 @@ export class WalletService {
    * @param {Object} opts
    * @param {string} opts.txProposalId - The tx id.
    * @param {string} opts.proposalSignature - S(raw tx). Used by other copayers to verify the proposal.
-   * @param {Boolean} [opts.noCashAddr] - do not use cashaddress for btx
+   * @param {Boolean} [opts.noCashAddr] - do not use cashaddress for mec
    */
   publishTx(opts, cb) {
 
@@ -2775,9 +2775,9 @@ export class WalletService {
                   'NewTxProposal',
                   txp,
                   () => {
-                    if (opts.noCashAddr && txp.coin == 'btx') {
+                    if (opts.noCashAddr && txp.coin == 'mec') {
                       if (txp.changeAddress) {
-                        txp.changeAddress.address = BTXAddressTranslator.translate(
+                        txp.changeAddress.address = MECAddressTranslator.translate(
                           txp.changeAddress.address,
                           'copay'
                         );
@@ -3256,17 +3256,17 @@ export class WalletService {
             return txp.status == 'broadcasted';
           });
 
-          if (opts.noCashAddr && txps[0] && txps[0].coin == 'btx') {
+          if (opts.noCashAddr && txps[0] && txps[0].coin == 'mec') {
             _.each(txps, x => {
               if (x.changeAddress) {
-                x.changeAddress.address = BTXAddressTranslator.translate(
+                x.changeAddress.address = MECAddressTranslator.translate(
                   x.changeAddress.address,
                   'copay'
                 );
               }
               _.each(x.outputs, x => {
                 if (x.toAddress) {
-                  x.toAddress = BTXAddressTranslator.translate(
+                  x.toAddress = MECAddressTranslator.translate(
                     x.toAddress,
                     'copay'
                   );

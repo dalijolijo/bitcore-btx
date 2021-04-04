@@ -1,6 +1,6 @@
 import { BchDeriver } from './bch';
 import { BtcDeriver } from './btc';
-import { BtxDeriver } from './btx';
+import { MecDeriver } from './mec';
 import { EthDeriver } from './eth';
 import { Paths } from './paths';
 import { XrpDeriver } from './xrp';
@@ -30,7 +30,7 @@ export interface IDeriver {
 const derivers: { [chain: string]: IDeriver } = {
   BTC: new BtcDeriver(),
   BCH: new BchDeriver(),
-  BTX: new BtxDeriver(),
+  MEC: new MecDeriver(),
   ETH: new EthDeriver(),
   XRP: new XrpDeriver()
 };

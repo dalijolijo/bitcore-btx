@@ -142,7 +142,7 @@ addNetwork({
   pubkeyhash: 0x03,
   privatekey: 0x80,
   scripthash: 0x05,
-  bech32prefix: 'btx',
+  bech32prefix: 'mec',
   xpubkey: 0x0488b21e,
   xprivkey: 0x0488ade4,
   networkMagic: 0xf9beb4d9,

@@ -20,5 +20,5 @@ NETWORK=testnet CHAIN=BCH npm start
 ```
 OR
 ```sh
-NETWORK=mainnet CHAIN=BTX npm start
+NETWORK=mainnet CHAIN=MEC npm start
 ```

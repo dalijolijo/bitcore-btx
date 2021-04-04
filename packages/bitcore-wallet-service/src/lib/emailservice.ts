@@ -267,7 +267,7 @@ export class EmailService {
       btc: 'BTC',
       bit: 'bits',
       bch: 'BCH',
-      btx: 'BTX',
+      mec: 'MEC',
       eth: 'ETH'
     };
 

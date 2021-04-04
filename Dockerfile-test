@@ -38,8 +38,8 @@ COPY  ./packages/bitcore-build/package-lock.json ./packages/bitcore-build/packag
 COPY  ./packages/bitcore-lib-cash/package.json ./packages/bitcore-lib-cash/package.json
 COPY  ./packages/bitcore-lib-cash/package-lock.json ./packages/bitcore-lib-cash/package-lock.json
 
-COPY  ./packages/bitcore-lib-btx/package.json ./packages/bitcore-lib-btx/package.json
-COPY  ./packages/bitcore-lib-btx/package-lock.json ./packages/bitcore-lib-btx/package-lock.json
+COPY  ./packages/bitcore-lib-mec/package.json ./packages/bitcore-lib-mec/package.json
+COPY  ./packages/bitcore-lib-mec/package-lock.json ./packages/bitcore-lib-mec/package-lock.json
 
 COPY  ./packages/bitcore-lib/package.json ./packages/bitcore-lib/package.json
 COPY  ./packages/bitcore-lib/package-lock.json ./packages/bitcore-lib/package-lock.json
@@ -53,8 +53,8 @@ COPY  ./packages/bitcore-node/package-lock.json ./packages/bitcore-node/package-
 COPY  ./packages/bitcore-p2p-cash/package.json ./packages/bitcore-p2p-cash/package.json
 COPY  ./packages/bitcore-p2p-cash/package-lock.json ./packages/bitcore-p2p-cash/package-lock.json
 
-COPY  ./packages/bitcore-p2p-btx/package.json ./packages/bitcore-p2p-btx/package.json
-COPY  ./packages/bitcore-p2p-btx/package-lock.json ./packages/bitcore-p2p-btx/package-lock.json
+COPY  ./packages/bitcore-p2p-mec/package.json ./packages/bitcore-p2p-mec/package.json
+COPY  ./packages/bitcore-p2p-mec/package-lock.json ./packages/bitcore-p2p-mec/package-lock.json
 
 COPY  ./packages/bitcore-p2p/package.json ./packages/bitcore-p2p/package.json
 COPY  ./packages/bitcore-p2p/package-lock.json ./packages/bitcore-p2p/package-lock.json

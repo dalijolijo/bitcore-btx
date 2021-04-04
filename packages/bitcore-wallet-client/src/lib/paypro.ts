@@ -1,5 +1,5 @@
 
-import { BitcoreLib, BitcoreLibBtx, BitcoreLibCash } from 'crypto-wallet-core';
+import { BitcoreLib, BitcoreLibMec, BitcoreLibCash } from 'crypto-wallet-core';
 
 var $ = require('preconditions').singleton();
 const URL = require('url');
@@ -10,7 +10,7 @@ const Errors = require('./errors');
 var Bitcore_ = {
   btc: Bitcore,
   bch: BitcoreLibCash,
-  btx: BitcoreLibBtx
+  mec: BitcoreLibMec
 };
 // const request = require('request');
 const JSON_PAYMENT_REQUEST_CONTENT_TYPE = 'application/payment-request';

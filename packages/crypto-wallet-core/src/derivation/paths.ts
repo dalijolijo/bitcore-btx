@@ -7,7 +7,7 @@ export const Paths = {
     mainnet: "m/44'/145'/",
     livenet: "m/44'/145'/"
   },
-  BTX: {
+  MEC: {
     mainnet: "m/44'/160'/",
     livenet: "m/44'/160'/"
   },

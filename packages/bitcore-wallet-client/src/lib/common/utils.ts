@@ -2,7 +2,7 @@
 
 import {
   BitcoreLib,
-  BitcoreLibBtx,
+  BitcoreLibMec,
   BitcoreLibCash,
   Deriver,
   Transactions
@@ -20,7 +20,7 @@ var Bitcore = BitcoreLib;
 var Bitcore_ = {
   btc: Bitcore,
   bch: BitcoreLibCash,
-  btx: BitcoreLibBtx,
+  mec: BitcoreLibMec,
   eth: Bitcore
 };
 var PrivateKey = Bitcore.PrivateKey;

@@ -1,0 +1,31 @@
+{
+  "bitcoreNode": {
+    "modules": ["./bitcore"],
+    "services": {
+      "api": {
+        "wallets": {
+          "allowCreationBeforeCompleteSync": true
+        }
+      }
+    },
+    "chains": {
+      "MEC": {
+        "mainnet": {
+          "chainSource": "p2p",
+          "trustedPeers": [
+            {
+              "host": "172.21.0.10",
+              "port": 7951
+            }
+          ],
+          "rpc": {
+            "host": "172.21.0.10",
+            "port": 7952,
+            "username": "mec",
+            "password": "mec"
+          }
+        }
+      }
+    }
+  }
+}

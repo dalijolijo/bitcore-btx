@@ -1,6 +1,6 @@
 import { BchValidation } from './bch';
 import { BtcValidation } from './btc';
-import { BtxValidation } from './btx';
+import { MecValidation } from './mec';
 import { EthValidation } from './eth';
 import { XrpValidation } from './xrp';
 
@@ -12,7 +12,7 @@ export interface IValidation {
 const validation: { [chain: string]: IValidation } = {
   BTC: new BtcValidation(),
   BCH: new BchValidation(),
-  BTX: new BtxValidation(),
+  MEC: new MecValidation(),
   ETH: new EthValidation(),
   XRP: new XrpValidation(),
 };

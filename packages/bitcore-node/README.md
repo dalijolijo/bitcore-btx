@@ -77,7 +77,7 @@ Set up your bitcore.config.json file in ./bitcore
           }
         }
       }
-      "BTX": {
+      "MEC": {
         "mainnet": {
           "parentChain": "BTC",
           "forkHeight": 492820,

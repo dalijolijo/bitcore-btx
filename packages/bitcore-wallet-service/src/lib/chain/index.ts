@@ -2,7 +2,7 @@ import { ITxProposal, IWallet, TxProposal } from '../model';
 import { WalletService } from '../server';
 import { BchChain } from './bch';
 import { BtcChain } from './btc';
-import { BtxChain } from './btx';
+import { MecChain } from './mec';
 import { EthChain } from './eth';
 const Common = require('../common');
 const Constants = Common.Constants;
@@ -34,7 +34,7 @@ export interface IChain {
 const chain: { [chain: string]: IChain } = {
   BTC: new BtcChain(),
   BCH: new BchChain(),
-  BTX: new BtxChain(),
+  MEC: new MecChain(),
   ETH: new EthChain()
 };
 

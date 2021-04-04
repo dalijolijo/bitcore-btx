@@ -48,7 +48,7 @@ module.exports = {
         url: 'https://api.bitcore.io',
       },
     },
-    btx: {
+    mec: {
       livenet: {
         url: 'https://api.bitcore.cc',
       },

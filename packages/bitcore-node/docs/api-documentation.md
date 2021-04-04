@@ -1,10 +1,10 @@
-# API Documentation for BTX
+# API Documentation for MEC
 
 ## Transactions
 
 ### Get Transactions by blockHeight
 
-GET `/api/BTX/mainnet/tx?blockHeight=12`
+GET `/api/MEC/mainnet/tx?blockHeight=12`
 
 <details>
 <summary>
@@ -14,7 +14,7 @@ GET `/api/BTX/mainnet/tx?blockHeight=12`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHeight=12
+curl https://api.bitcore.cc/api/MEC/mainnet/tx?blockHeight=12
 ```
 
 ```json
@@ -28,7 +28,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHeight=12
       "coinbase" : true,
       "network" : "mainnet",
       "blockTime" : "2017-04-24T04:09:31.000Z",
-      "chain" : "BTX",
+      "chain" : "MEC",
       "confirmations" : 575847,
       "inputCount" : 1,
       "fee" : -1,
@@ -44,7 +44,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHeight=12
 
 ### Get Transactions by blockHash
 
-GET `/api/BTX/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd`
+GET `/api/MEC/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd`
 
 <details>
 <summary><b>Response</b></summary>
@@ -53,7 +53,7 @@ GET `/api/BTX/mainnet/tx?blockHash=000000006a625f06636b8bb6ac7b960a8d03705d1ace0
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHash=e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4
+curl https://api.bitcore.cc/api/MEC/mainnet/tx?blockHash=e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4
 ```
 
 ```json
@@ -64,7 +64,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHash=e12a0c31e904f7747fb0f66
       "size" : 115,
       "blockHeight" : 580395,
       "confirmations" : -4536,
-      "chain" : "BTX",
+      "chain" : "MEC",
       "fee" : -1,
       "blockHash" : "e12a0c31e904f7747fb0f66042ffa418ddda737ff95833ea89092a58d52866e4",
       "_id" : "5e9595ca5005e30c78f76378",
@@ -83,7 +83,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx?blockHash=e12a0c31e904f7747fb0f66
 
 ### Get Transaction by txid
 
-GET `/api/BTX/mainnet/tx/:txid`
+GET `/api/MEC/mainnet/tx/:txid`
 
 <details>
 <summary><b>Response</b></summary>
@@ -92,7 +92,7 @@ GET `/api/BTX/mainnet/tx/:txid`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12
+curl https://api.bitcore.cc/api/MEC/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12
 ```
 
 ```json
@@ -103,7 +103,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675
    "locktime" : -1,
    "network" : "mainnet",
    "size" : 115,
-   "chain" : "BTX",
+   "chain" : "MEC",
    "confirmations" : -4536,
    "value" : 312500000,
    "outputCount" : 1,
@@ -120,7 +120,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675
 
 ### Get Authhead
 
-GET `/BTX/mainnet/tx/:txid/authhead`
+GET `/MEC/mainnet/tx/:txid/authhead`
 
 <details>
 <summary>
@@ -130,14 +130,14 @@ GET `/BTX/mainnet/tx/:txid/authhead`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/authhead
+curl https://api.bitcore.cc/api/MEC/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/authhead
 ```
 
 ```json
 {
    "identityOutputs" : [],
    "network" : "mainnet",
-   "chain" : "BTX",
+   "chain" : "MEC",
    "authbase" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12"
 }
 ```
@@ -146,7 +146,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675
 
 ### Get Coins
 
-GET `/BTX/mainnet/tx/:txid/coins`
+GET `/MEC/mainnet/tx/:txid/coins`
 
 <details>
 <summary>
@@ -156,7 +156,7 @@ GET `/BTX/mainnet/tx/:txid/coins`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/coins
+curl https://api.bitcore.cc/api/MEC/mainnet/tx/172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12/coins
 ```
 
 ```json
@@ -175,7 +175,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675
          "mintTxid" : "172eaed7602a511a9d36a5173d4b17675ff92cd50a2c3c6ce5ae4bd92e08cf12",
          "mintIndex" : 0,
          "network" : "mainnet",
-         "chain" : "BTX"
+         "chain" : "MEC"
       }
    ],
    "inputs" : []
@@ -188,7 +188,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/tx/172eaed7602a511a9d36a5173d4b17675
 
 ### Get Address Transactions
 
-GET `/api/BTX/mainnet/address/:address/txs`
+GET `/api/MEC/mainnet/address/:address/txs`
 
 <details>
 <summary><b>Response</b></summary>
@@ -197,14 +197,14 @@ GET `/api/BTX/mainnet/address/:address/txs`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/txs
+curl https://api.bitcore.cc/api/MEC/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/txs
 ```
 
 ```json
 [
    {
       "network" : "mainnet",
-      "chain" : "BTX",
+      "chain" : "MEC",
       "mintIndex" : 0,
       "mintHeight" : 580319,
       "_id" : "5e95682c5005e30c78dc566f",
@@ -224,7 +224,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTU
 
 ### Get Transaction Outputs by Address
 
-GET `/api/BTX/mainnet/address/:address/?unspent=true`
+GET `/api/MEC/mainnet/address/:address/?unspent=true`
 
 <details>
 <summary><b>Response</b></summary>
@@ -233,7 +233,7 @@ GET `/api/BTX/mainnet/address/:address/?unspent=true`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/?unspent=true
+curl https://api.bitcore.cc/api/MEC/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/?unspent=true
 ```
 
 ```json
@@ -245,7 +245,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTU
       "value" : 1000000,
       "spentTxid" : "",
       "mintTxid" : "fca422115dfc5693059ec8be06bd0db55ddafee549e68cae6db4f2fb6a1c2dd8",
-      "chain" : "BTX",
+      "chain" : "MEC",
       "script" : "76a9148ac6bb327e87568f16d75a041a4f7926393667ae88ac",
       "address" : "2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg",
       "_id" : "5e95682c5005e30c78dc566f",
@@ -260,7 +260,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTU
 
 ### Get Balance for an Address
 
-GET `/api/BTX/mainnet/address/:address/balance`
+GET `/api/MEC/mainnet/address/:address/balance`
 
 <details>
 <summary><b>Response</b></summary>
@@ -269,7 +269,7 @@ GET `/api/BTX/mainnet/address/:address/balance`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/balance
+curl https://api.bitcore.cc/api/MEC/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTUZiTnPg/balance
 ```
 
 ```json
@@ -286,7 +286,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/address/2RfbGtSeULJez9UjGsJcWPsfyHTU
 
 ### Get Block
 
-GET `/api/BTX/mainnet/block/:blockId`
+GET `/api/MEC/mainnet/block/:blockId`
 
 <details>
 <summary><b>Response</b></summary>
@@ -295,7 +295,7 @@ GET `/api/BTX/mainnet/block/:blockId`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/block/d95660b39e3bca7aa5159f32d484629b649796ec9ab882cc91f853a8fb238c55
+curl https://api.bitcore.cc/api/MEC/mainnet/block/d95660b39e3bca7aa5159f32d484629b649796ec9ab882cc91f853a8fb238c55
 ```
 
 ```json
@@ -311,7 +311,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/block/d95660b39e3bca7aa5159f32d48462
    "transactionCount" : 3,
    "nonce" : 661668582,
    "size" : 562,
-   "chain" : "BTX",
+   "chain" : "MEC",
    "merkleRoot" : "003f848c56d74a1268a20d09b5af47d04d6395491993d854d4ea243ae3b608ce",
    "bits" : 453814285,
    "_id" : "5e9572b95005e30c78e29972",
@@ -324,7 +324,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/block/d95660b39e3bca7aa5159f32d48462
 
 ### Get Current Height
 
-GET `/api/BTX/mainnet/block/tip`
+GET `/api/MEC/mainnet/block/tip`
 
 <details>
 <summary><b>Response</b></summary>
@@ -333,7 +333,7 @@ GET `/api/BTX/mainnet/block/tip`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/block/tip
+curl https://api.bitcore.cc/api/MEC/mainnet/block/tip
 ```
 
 ```json
@@ -341,7 +341,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/block/tip
    "time" : "2020-04-06T12:39:24.000Z",
    "nonce" : 605478260,
    "transactionCount" : 1,
-   "chain" : "BTX",
+   "chain" : "MEC",
    "previousBlockHash" : "ecaeed84256e48f07bc87e152312e1724f282bd97179664495bfa622f2e1e6ec",
    "nextBlockHash" : "",
    "size" : 196,
@@ -387,16 +387,16 @@ Inside the project root directory /bitcore/ run:
 node packages/bitcore-node/build/test/benchmark/wallet-benchmark.js
 ```
 
-### Add Wallet TODO : Update for BTX needed
+### Add Wallet TODO : Update for MEC needed
 
-POST `/api/BTX/mainnet/wallet`
+POST `/api/MEC/mainnet/wallet`
 
 BODY:
 
 ```json
 {
     "name": "WalletName2",
-    "chain": "BTX",
+    "chain": "MEC",
     "network": "mainnet",
     "pubKey": "03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d",
     "path": "m/44'/160'/0'"
@@ -412,11 +412,11 @@ BODY:
 ```sh
 curl -v POST -H "Content-Type: application/json" -d '{
   "name": "WalletName2",
-  "chain": "BTX",
+  "chain": "MEC",
   "network": "mainnet",
   "pubKey": "03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d",
   "path": "m/44'/160'/0'"
-}' "https://api.bitcore.cc/api/BTX/mainnet/wallet/"
+}' "https://api.bitcore.cc/api/MEC/mainnet/wallet/"
 ```
 
 ```json
@@ -432,9 +432,9 @@ curl -v POST -H "Content-Type: application/json" -d '{
 
 </details>
 
-### Get Wallet TODO : Update for BTX needed
+### Get Wallet TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey`
+GET `/api/MEC/mainnet/wallet/:pubKey`
 
 <details>
 <summary><b>Response</b></summary>
@@ -443,7 +443,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
 ```
 
 ```json
@@ -460,9 +460,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac4
 
 </details>
 
-### Import Addresses TODO : Update for BTX needed
+### Import Addresses TODO : Update for MEC needed
 
-POST `/api/BTX/mainnet/wallet/:pubKey`
+POST `/api/MEC/mainnet/wallet/:pubKey`
 
 BODY: raw jsonl wallet file of the form
 
@@ -479,7 +479,7 @@ BODY: raw jsonl wallet file of the form
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d
 ```
 
 ```json
@@ -496,9 +496,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac4
 
 </details>
 
-### Get Wallet Addresses TODO : Update for BTX needed
+### Get Wallet Addresses TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey/addresses`
+GET `/api/MEC/mainnet/wallet/:pubKey/addresses`
 
 <details>
 <summary><b>Response</b></summary>
@@ -507,7 +507,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey/addresses`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d/addresses
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac475b82156ea42c8659c8358b68c828df9a1c3d/addresses
 ```
 
 ```json
@@ -526,9 +526,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/03bdb94afdc7e5c4811bf9b160ac4
 
 </details>
 
-### Get Wallet Transactions TODO : Update for BTX needed
+### Get Wallet Transactions TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey/transactions`
+GET `/api/MEC/mainnet/wallet/:pubKey/transactions`
 
 <details>
 <summary><b>Response</b></summary>
@@ -537,7 +537,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey/transactions`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/transactions
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/transactions
 ```
 
 ```json
@@ -558,9 +558,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc
 
 </details>
 
-### Get Balance TODO : Update for BTX needed
+### Get Balance TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey/balance`
+GET `/api/MEC/mainnet/wallet/:pubKey/balance`
 
 <details>
 <summary><b>Response</b></summary>
@@ -569,7 +569,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey/balance`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/balance
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/balance
 ```
 
 ```json
@@ -582,9 +582,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc
 
 </details>
 
-### Get Wallet UTXOS TODO : Update for BTX needed
+### Get Wallet UTXOS TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
+GET `/api/MEC/mainnet/wallet/:pubKey/utxos`
 
 <details>
 <summary><b>Response</b></summary>
@@ -593,7 +593,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/utxos
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/utxos
 ```
 
 ```json
@@ -618,9 +618,9 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc
 
 </details>
 
-### Get Wallet UTXOS TODO : Update for BTX needed
+### Get Wallet UTXOS TODO : Update for MEC needed
 
-GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
+GET `/api/MEC/mainnet/wallet/:pubKey/utxos`
 
 <details>
 <summary><b>Response</b></summary>
@@ -629,7 +629,7 @@ GET `/api/BTX/mainnet/wallet/:pubKey/utxos`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/addresses/missing
+curl https://api.bitcore.cc/api/MEC/mainnet/wallet/02870d8366cf8e50f383e38e5fafc01d956b67f25fbf5c1dd4e3766cf85acbc400/addresses/missing
 ```
 
 ```json
@@ -658,7 +658,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/wallet/02870d8366cf8e50f383e38e5fafc
 
 ### Get Fee estimate for within N blocks
 
-GET `/api/BTX/mainnet/fee/:target`
+GET `/api/MEC/mainnet/fee/:target`
 
 <details>
 <summary><b>Response</b></summary>
@@ -667,7 +667,7 @@ GET `/api/BTX/mainnet/fee/:target`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/fee/22
+curl https://api.bitcore.cc/api/MEC/mainnet/fee/22
 ```
 
 ```json
@@ -683,7 +683,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/fee/22
 
 ### Get Daily Transactions
 
-GET `/api/BTX/mainnet/stats/daily-transactions`
+GET `/api/MEC/mainnet/stats/daily-transactions`
 
 <details>
 <summary><b>Response</b></summary>
@@ -692,7 +692,7 @@ GET `/api/BTX/mainnet/stats/daily-transactions`
 <b>Use Curl command in terminal to get a response</b>
 
 ```sh
-curl https://api.bitcore.cc/api/BTX/mainnet/stats/daily-transactions
+curl https://api.bitcore.cc/api/MEC/mainnet/stats/daily-transactions
 ```
 
 ```json
@@ -820,7 +820,7 @@ curl https://api.bitcore.cc/api/BTX/mainnet/stats/daily-transactions
       }
    ],
    "network" : "mainnet",
-   "chain" : "BTX"
+   "chain" : "MEC"
 }
 ```
 
@@ -846,7 +846,7 @@ curl https://api.bitcore.cc/api/status/enabled-chains
 [
    {
       "network" : "mainnet",
-      "chain" : "BTX"
+      "chain" : "MEC"
    }
 ]
 ```

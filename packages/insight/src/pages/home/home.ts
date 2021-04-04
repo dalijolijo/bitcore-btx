@@ -138,7 +138,7 @@ export class HomePage {
           }
         }
       },
-      btx: {
+      mec: {
         name: 'Bitcore',
         historicalRates: [],
         dailyTransactionCounts: [],

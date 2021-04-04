@@ -1,0 +1,5 @@
+FROM bitcore-node
+EXPOSE 5000
+
+RUN export ENV=prod CHAIN=MEC NETWORK=mainnet API_PREFIX=https://api.bitcore.cc/api
+CMD ["npm", "--prefix=./packages/insight", "start"]

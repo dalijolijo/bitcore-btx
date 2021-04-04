@@ -1,32 +1,32 @@
 version: '3'
 
 services:
-  bitcored:
+  megacoind:
     build:
-      context: ./docker-bitcored
+      context: ./docker-megacoind
       dockerfile: ./Dockerfile
-    image: bitcored
-    container_name: bitcored
+    image: megacoind
+    container_name: megacoind
     command:
-      -whitebind=172.21.0.10:8555
+      -whitebind=172.21.0.10:7951
       -whitelist=172.21.0.13
       -txindex=1
       -rpcbind=172.21.0.10
       -rpcallowip=172.21.0.0/24
-      -port=8555
-      -rpcport=8556
-      -rpcuser=btx 
-      -rpcpassword=btx
+      -port=7951
+      -rpcport=7952
+      -rpcuser=mec 
+      -rpcpassword=mec
     restart: always
     networks:
       insight-net:
         ipv4_address: 172.21.0.10
     ports:
-      - 8555:8555
+      - 7951:7951
     expose:
-      - 8556
+      - 7952
     volumes:
-      - /home/bitcore:/data
+      - /home/megacoin:/data
 
   mongodb:
     image: mongo:4.4.4-bionic
@@ -43,7 +43,7 @@ services:
   bitcore-node:
     build:
       context: .
-      dockerfile: ./Dockerfile.bitcore-node.btx
+      dockerfile: ./Dockerfile.bitcore-node.mec
     image: bitcore-node
     container_name: bitcore-node
     restart: always
@@ -55,16 +55,16 @@ services:
       - 3000:3000
     environment:
       - "DB_HOST=mongodb"
-      - "BITCORE_CONFIG_PATH=/bitcore/bitcore.config.json"
+      - "MEGACOIN_CONFIG_PATH=/bitcore/bitcore.config.json"
     depends_on:
       - mongodb
-      - bitcored
+      - megacoind
 
   insight:
     image: insight
     build:
       context: .
-      dockerfile: ./Dockerfile.insight.btx
+      dockerfile: ./Dockerfile.insight.mec
     container_name: insight
     restart: always
     networks:
@@ -74,7 +74,7 @@ services:
       - 8080:5000
     environment:
       - "ENV=prod"
-      - "CHAIN=BTX"
+      - "CHAIN=MEC"
       - "NETWORK=mainnet"
       - "API_PREFIX=https://api.bitcore.cc/api"
     depends_on:

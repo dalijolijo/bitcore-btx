@@ -16,12 +16,12 @@ export interface NetworkSettings {
 }
 
 const CurrentEnv = process.env.ENV || 'dev';
-const BtxApiPrefix = process.env.API_PREFIX;
+const MecApiPrefix = process.env.API_PREFIX;
 
 const EnvApiHosts: { [env: string]: { [chain: string]: string } } = {
   prod: {
     default: 'https://api.bitcore.io/api',
-    BTX: BtxApiPrefix,
+    MEC: MecApiPrefix,
     ETH: 'https://api-eth.bitcore.io/api'
   },
   dev: { default: '/api' }
@@ -44,7 +44,7 @@ export class ApiProvider {
   public ratesAPI = {
     btc: 'https://bitpay.com/api/rates',
     bch: 'https://bitpay.com/api/rates/bch',
-    btx: 'https://bitpay.com/api/rates/btx',
+    mec: 'https://bitpay.com/api/rates/mec',
     eth: 'https://bitpay.com/api/rates/eth'
   };
 

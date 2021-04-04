@@ -3,7 +3,7 @@
 
 **Infrastructure to build Bitcoin and blockchain-based applications for the next generation of financial technology.**
 
-## Easy Setup Guide for BTX (with docker-compose)
+## Easy Setup Guide for MEC (with docker-compose)
 
 <details>
 <summary>Checkout the repo bitcore-btx</summary>
@@ -39,7 +39,7 @@ Change ```YOUR_IP``` in environment variable ``- "API_PREFIX=http://YOUR_IP:3000
     image: insight
     build:
       context: .
-      dockerfile: ./Dockerfile.insight.btx
+      dockerfile: ./Dockerfile.insight.mec
     container_name: insight
     restart: always
     networks:
@@ -49,7 +49,7 @@ Change ```YOUR_IP``` in environment variable ``- "API_PREFIX=http://YOUR_IP:3000
       - 80:80
     environment:
       - "ENV=prod"
-      - "CHAIN=BTX"
+      - "CHAIN=MEC"
       - "NETWORK=mainnet"
       - "API_PREFIX=http://YOUR_IP:3000/api"
     depends_on:
@@ -59,12 +59,12 @@ Change ```YOUR_IP``` in environment variable ``- "API_PREFIX=http://YOUR_IP:3000
 </details>
 
 <details>
-<summary>Starting Bitcore-Node, BTX Node, Mongo DB and Insight in Docker Containers</summary>
+<summary>Starting Bitcore-Node, MEC Node, Mongo DB and Insight in Docker Containers</summary>
 <br>
 
 ```sh
 cd bitcore-btx
-docker-compose up -d -f docker-compose.btx.json
+docker-compose up -d -f docker-compose.mec.json
 ```
 
 </details>
@@ -152,19 +152,19 @@ apt-get install nodejs
 
 </details>
 
-## Setup Guide for BTX
+## Setup Guide for MEC
 
-### 1. Setup Bitcore config for BTX
+### 1. Setup Bitcore config for MEC
 
 <details>
-<summary>Configfile bitcore.config.json for BTX Mainnet</summary>
+<summary>Configfile bitcore.config.json for MEC Mainnet</summary>
 <br>
 
 ```json
 {
   "bitcoreNode": {
     "chains": {
-      "BTX": {
+      "MEC": {
         "mainnet": {
           "parentChain": "BTC",
           "forkHeight": 492820,
@@ -189,39 +189,39 @@ apt-get install nodejs
 
 </details>
 
-### 2. Setup BTX Node
+### 2. Setup MEC Node
 
 <details>
-<summary>Build Docker Image for BTX Node</summary>
+<summary>Build Docker Image for MEC Node</summary>
 
 ```sh
-cd bitcore-btx/docker-bitcored
-docker build -t dalijolijo/bitcored:<VERSION> .
-# Example for VERSION 0.15.2.1
-docker build -t dalijolijo/bitcored:0.15.2.1 .
+cd bitcore-btx/docker-megacoind
+docker build -t dalijolijo/megacoind:<VERSION> .
+# Example for VERSION 1.9.9.5.1
+docker build -t dalijolijo/megacoind:1.9.9.5.1 .
 ```
 
 </details>
 
-### 3. Run BTX Node
+### 3. Run MEC Node
 
 <details>
-<summary>Starting BTX Node Docker Container</summary>
+<summary>Starting MEC Node Docker Container</summary>
 
 ```sh
-cd bitcore-btx/docker-bitcored
-docker run --rm --name bitcored -v /home/.bitcore:/data -d -p 40008:40008 -p 40009:40009 dalijolijo/bitcored:<VERSION> -rpcuser=<USER> -rpcpassword=<PWD>
-# Example for VERSION 0.15.2.1
-docker run --rm --name bitcored -v /home/.bitcore:/data -d -p 40008:40008 -p 40009:40009 dalijolijo/bitcored:0.15.2.1 -rpcuser=btx -rpcpassword=btx
+cd bitcore-btx/docker-megacoind
+docker run --rm --name megacoind -v /home/.bitcore:/data -d -p 40008:40008 -p 40009:40009 dalijolijo/megacoind:<VERSION> -rpcuser=<USER> -rpcpassword=<PWD>
+# Example for VERSION 1.9.9.5.1
+docker run --rm --name megacoind -v /home/.bitcore:/data -d -p 40008:40008 -p 40009:40009 dalijolijo/megacoind:1.9.9.5.1 -rpcuser=mec -rpcpassword=mec
 ```
 
 </details>
 
 <details>
-<summary>Check if BTX Node is fully synced</summary>
+<summary>Check if MEC Node is fully synced</summary>
 
 ```sh
-docker logs --tail 30 bitcored
+docker logs --tail 30 megacoind
 ```
 
 </details>
@@ -347,7 +347,7 @@ npm run node
           }
         }
       },
-      "BTX": {
+      "MEC": {
         "mainnet": {
           "parentChain": "BTC",
           "forkHeight": 492820,
@@ -455,12 +455,12 @@ npm run node
 - [Bitcore ECIES](https://github.com/bitpay/bitcore-ecies) - Uses ECIES symmetric key negotiation from public keys to encrypt arbitrarily long data streams
 - [Bitcore Lib](packages/bitcore-lib) - A pure and powerful JavaScript Bitcoin library
 - [Bitcore Lib Cash](packages/bitcore-lib-cash) - A pure and powerful JavaScript Bitcoin Cash library
-- [Bitcore Lib BTX](packages/bitcore-lib-btx) - A pure and powerful JavaScript Bitcore BTX library
+- [Bitcore Lib MEC](packages/bitcore-lib-mec) - A pure and powerful JavaScript Megacoin MEC library
 - [Bitcore Message](https://github.com/bitpay/bitcore-message) - Bitcoin message verification and signing
 - [Bitcore Mnemonic](packages/bitcore-mnemonic) - Implements mnemonic code for generating deterministic keys
 - [Bitcore P2P](packages/bitcore-p2p) - The peer-to-peer networking protocol for BTC
 - [Bitcore P2P Cash](packages/bitcore-p2p-cash) - The peer-to-peer networking protocol for BCH
-- [Bitcore P2P BTX](packages/bitcore-p2p-btx) - The peer-to-peer networking protocol for BTX
+- [Bitcore P2P MEC](packages/bitcore-p2p-mec) - The peer-to-peer networking protocol for MEC
 - [Crypto Wallet Core](packages/crypto-wallet-core) - A coin-agnostic wallet library for creating transactions, signing, and address derivation
 
 ## Extras

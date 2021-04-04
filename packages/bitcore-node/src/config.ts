@@ -6,7 +6,7 @@ let program = parseArgv([], ['config']);
 
 function findConfig(): ConfigType | undefined {
   let foundConfig;
-  const envConfigPath = process.env.BITCORE_CONFIG_PATH;
+  const envConfigPath = process.env.MEGACOIN_CONFIG_PATH;
   const argConfigPath = program.config;
   const configFileName = 'bitcore.config.json';
   let bitcoreConfigPaths = [
@@ -102,15 +102,15 @@ const Config = function(): ConfigType {
           }
         }
       },
-      BTX: {
+      MEC: {
         mainnet: {
           chainSource: 'p2p',
-          trustedPeers: [{ host: '127.0.0.1', port: 8555 }],
+          trustedPeers: [{ host: '127.0.0.1', port: 7951 }],
           rpc: {
             host: '127.0.0.1',
-            port: 8556,
-            username: 'btx',
-            password: 'btx'
+            port: 8795,
+            username: 'mec',
+            password: 'mec'
           }
         }
       }

@@ -24,7 +24,7 @@
   "dependencies": {
     "bitcore-lib": "^8.12.0",
     "bitcore-lib-cash": "^8.12.0",
-    "bitcore-lib-btx": "^8.3.0",
+    "bitcore-lib-mec": "^8.3.0",
     "ethers": "4.0.37",
     "ripple-binary-codec": "0.2.4",
     "ripple-keypairs": "0.11.0",

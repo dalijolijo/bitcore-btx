@@ -61,15 +61,15 @@ CHECK_EXIST_INSIGHT=$(docker ps | grep "insight")
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
 
-CHECK_EXIST_BTX=$(docker ps | grep "megacoind")
-    if [ -z "$CHECK_EXIST_BTX" ]; then
+CHECK_EXIST_MEC=$(docker ps | grep "megacoind")
+    if [ -z "$CHECK_EXIST_MEC" ]; then
         ERROR_MSG="The megacoind docker container is down"
         TELEGRAM_MSG="$CHECK_SERVER : $ERROR_MSG"
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
 
-CHECK_EXIST_BITCORE=$(docker ps | grep "bitcore-node")
-    if [ -z "$CHECK_EXIST_BITCORE" ]; then
+CHECK_EXIST_MEGACOIN=$(docker ps | grep "bitcore-node")
+    if [ -z "$CHECK_EXIST_MEGACOIN" ]; then
         ERROR_MSG="The bitcore-node docker container is down"
         TELEGRAM_MSG="$CHECK_SERVER : $ERROR_MSG"
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"

@@ -11,7 +11,7 @@ listen=1
 server=1
 
 # Make sure port & rpcport matches the
-# bitcore.config.json ports for BTX mainnet
+# bitcore.config.json ports for MEC mainnet
 port=7951
 rpcport=7952
 rpcallowip=0.0.0.0/0
