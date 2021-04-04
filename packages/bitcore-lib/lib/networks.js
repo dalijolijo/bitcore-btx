@@ -149,7 +149,7 @@ addNetwork({
   port: 8555,
   dnsSeeds: [
     '37.120.190.76',
-    'seed.bitcore.biz'
+    'seed.bitcore.cc'
   ]
 });
 
