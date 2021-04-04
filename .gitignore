@@ -14,3 +14,4 @@ Session.vim
 *~
 ts_build
 bitcore-lib.js
+.env_telegram
