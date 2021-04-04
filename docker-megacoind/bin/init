@@ -1,0 +1,40 @@
+!/bin/bash
+
+#
+# Configure megacoin.conf
+#
+CONF=${DATA}/megacoin.conf
+
+if [ ! -e "${CONF}" ]; then
+  echo "txindex=0
+listen=1
+server=1
+
+# Make sure port & rpcport matches the
+# bitcore.config.json ports for BTX mainnet
+port=7951
+rpcport=7952
+rpcallowip=0.0.0.0/0
+
+rpcuser=mec
+rpcpassword=mec
+
+printtoconsole=1
+
+addnode=37.120.186.85
+addnode=37.120.190.76
+addnode=185.194.140.60
+addnode=185.194.142.125
+addnode=45.90.4.224
+addnode=45.90.4.225
+addnode=45.90.4.226
+addnode=45.90.4.227
+addnode=45.90.4.228
+addnode=45.90.4.230
+addnode=45.90.4.231
+addnode=45.90.4.232
+" > "${CONF}"
+fi
+
+exec megacoind -datadir=${DATA} -conf=${CONF} "$@"
+
