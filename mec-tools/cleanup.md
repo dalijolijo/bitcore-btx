@@ -2,9 +2,9 @@
 
 ```sh
 docker-compose down
-rm -rf /home/bitcore
+rm -rf /home/megacoin
 rm -rf /home/mongodb/
-docker rmi bitcored:latest
+docker rmi megacoind:latest
 docker system prune -f
 docker-compose up -d
 ```

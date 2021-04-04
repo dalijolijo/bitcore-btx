@@ -3,7 +3,7 @@
 
 # cron job config
 # crontab -e
-#*/10 * * * * /root/insight/bitcore-btx/btx-tools/telegram_notification.sh > /var/log/telegram_notificationy.log 2>&1
+#*/10 * * * * /root/insight/bitcore-btx/mec-tools/telegram_notification.sh > /var/log/telegram_notificationy.log 2>&1
 
 # find MN_TELEGRAM_GROUP_ID
 #curl https://api.telegram.org/bot${MN_TELEGRAM_BOT_TOKEN}/getUpdates
@@ -44,7 +44,7 @@ if [ $? -ne 0 ] ; then
    pip3 install tgcli
 fi
 
-pushd /root/insight/bitcore-btx/btx-tools/ >/dev/null
+pushd /root/insight/bitcore-btx/mec-tools/ >/dev/null
 source .env_telegram
 
 CHECK_RESTART=$(docker ps | grep "minutes" || docker ps | grep "seconds" || docker ps | grep "Restarting")
@@ -61,9 +61,9 @@ CHECK_EXIST_INSIGHT=$(docker ps | grep "insight")
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
 
-CHECK_EXIST_BTX=$(docker ps | grep "bitcored")
+CHECK_EXIST_BTX=$(docker ps | grep "megacoind")
     if [ -z "$CHECK_EXIST_BTX" ]; then
-        ERROR_MSG="The bitcored docker container is down"
+        ERROR_MSG="The megacoind docker container is down"
         TELEGRAM_MSG="$CHECK_SERVER : $ERROR_MSG"
         /usr/local/bin/tgcli bot -t "$MN_TELEGRAM_BOT_TOKEN" send -r "$MN_TELEGRAM_GROUP_ID" message "$TELEGRAM_MSG"
     fi
