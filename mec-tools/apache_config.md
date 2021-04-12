@@ -11,6 +11,7 @@ cd /etc/apache2/
 mkdir /etc/apache2/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
 a2enmod ssl
+a2enmod proxy_http
 service apache2 force-reload
 ```
 
@@ -82,7 +83,7 @@ a2ensite insight-ssl.conf
                 SSLCertificateFile /etc/apache2/ssl/apache.crt
                 SSLCertificateKeyFile /etc/apache2/ssl/apache.key
        </VirtualHost>
-/IfModule
+</IfModule>
 ```
 
 ## Activate changes
