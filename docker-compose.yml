@@ -76,7 +76,7 @@ services:
       - "ENV=prod"
       - "CHAIN=MEC"
       - "NETWORK=mainnet"
-      - "API_PREFIX=https://api.bitcore.cc/api"
+      - "API_PREFIX=https://api.megacoin-mec.cc/api"
     depends_on:
       - bitcore-node
 

@@ -50,10 +50,10 @@ module.exports = {
     },
     mec: {
       livenet: {
-        url: 'https://api.bitcore.cc',
+        url: 'https://api.megacoin-mec.cc',
       },
       testnet: {
-        url: 'https://api.bitcore.cc',
+        url: 'https://api.megacoin-mec.cc',
       },
     },
     eth: {

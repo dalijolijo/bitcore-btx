@@ -32,7 +32,7 @@ const pubKey = Bitcore.PrivateKey(tmp).toPublicKey() ;
 const BASE = {
   BTC: `https://api.bitcore.io/api/${coin}/${network}`,
   BCH: `https://api.bitcore.io/api/${coin}/${network}`,
-  MEC: `https://api.bitcore.cc/api/${coin}/${network}`,
+  MEC: `https://api.megacoin-mec.cc/api/${coin}/${network}`,
   ETH: `https://api-eth.bitcore.io/api/${coin}/${network}`,
 };
 let baseUrl = BASE[coin];

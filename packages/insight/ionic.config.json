@@ -7,7 +7,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://api.bitcore.cc/api"
+      "proxyUrl": "https://api.megacoin-mec.cc/api"
     }
   ],
   "hooks": {}
