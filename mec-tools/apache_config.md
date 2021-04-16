@@ -48,7 +48,7 @@ a2ensite insight-ssl.conf
 
 ```sh
 <VirtualHost *:80>
-        ServerName v220200132547106119.bestsrv.de
+        ServerName explorer.v220200132547106119.bestsrv.de
         ServerAdmin webmaster@localhost
         Redirect permanent / https://explorer.v220200132547106119.bestsrv.de
 		
@@ -89,4 +89,71 @@ a2ensite insight-ssl.conf
 ## Activate changes
 ```sh
 systemctl restart apache2
+```
+
+# Generate cert for explorer.megacoin-mec.cc and api.megacoin-mec.cc with Let’s Encrypt SSL Certbot
+
+## Update system and register PPA
+```sh
+apt-get update
+apt-get install software-properties-common
+add-apt-repository universe
+add-apt-repository ppa:certbot/certbot
+```
+
+## Install Certbot
+```sh
+apt-get install certbot
+apt-get install python-certbot-apache
+```
+
+## Creating public and private keys
+```sh
+certbot --apache -d explorer.megacoin-mec.cc -d api.megacoin-mec.cc
+
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator apache, Installer apache
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for explorer.megacoin-mec.cc
+Enabled Apache rewrite module
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/apache2/sites-enabled/insight-ssl.conf
+Deploying Certificate to VirtualHost /etc/apache2/sites-enabled/insight-ssl.conf
+
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Enabled Apache rewrite module
+Redirecting vhost in /etc/apache2/sites-enabled/000-default.conf to ssl vhost in /etc/apache2/sites-enabled/insight-ssl.conf
+Redirecting vhost in /etc/apache2/sites-enabled/000-default.conf to ssl vhost in /etc/apache2/sites-enabled/insight-ssl.conf
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations! You have successfully enabled https://explorer.megacoin-mec.cc
+and https://api.megacoin-mec.cc
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=explorer.megacoin-mec.cc
+https://www.ssllabs.com/ssltest/analyze.html?d=api.megacoin-mec.cc
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/explorer.megacoin-mec.cc/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/explorer.megacoin-mec.cc/privkey.pem
+   Your cert will expire on 2021-07-15. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
 ```
